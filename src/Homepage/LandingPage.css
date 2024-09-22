@@ -1,0 +1,39 @@
+.LandingPage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100dvh;
+}
+
+.LandingPage .icon-react-link {
+    width: 120px;
+    height: auto;
+    transform-origin: center;
+    animation: rotate 8s linear infinite;
+    margin-bottom: 0.25rem;
+}
+
+.LandingPage .icon-react-link .icon-react {
+    width: 100%;
+    height: auto;
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.LandingPage .title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: hsl(0 0 10);
+    margin-bottom: 2rem;
+}
+
+.LandingPage .signature {   
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: hsl(0 0 30);
+}

@@ -1,0 +1,14 @@
+.UnidadesMedida {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100dvh;
+}
+
+.UnidadesMedida .title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: hsl(0 0 10);
+    margin-bottom: 2rem;
+}

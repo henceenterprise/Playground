@@ -1,0 +1,14 @@
+.DesignSystem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100dvh;
+}
+
+.img-design_system_concept {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    display: block;
+}
