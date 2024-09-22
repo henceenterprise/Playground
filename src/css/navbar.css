@@ -19,7 +19,6 @@
           justify-content: space-between;
   padding: 12px 24px;
 }
-
 .Navbar .logo {
   font-size: 1.25rem;
   font-weight: 600;
@@ -27,11 +26,9 @@
   -webkit-transition: all 0.25s ease;
   transition: all 0.25s ease;
 }
-
 .Navbar .logo:hover {
   color: hsl(193, 95%, 68%);
 }
-
 .Navbar .links {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -48,11 +45,19 @@
           justify-content: center;
   gap: 1rem;
 }
-
 .Navbar .links .link {
   position: relative;
 }
-
+.Navbar .links .link a {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: hsl(0, 0%, 10%);
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+.Navbar .links .link a:hover {
+  color: hsl(193, 95%, 68%);
+}
 .Navbar .links .link::after {
   content: "";
   height: 1px;
@@ -64,19 +69,6 @@
   -webkit-transition: width 0.25s ease-in-out;
   transition: width 0.25s ease-in-out;
 }
-
 .Navbar .links .link.active::after {
   width: 100%;
-}
-
-.Navbar .links .link a {
-  font-size: 0.85rem;
-  font-weight: 400;
-  color: hsl(0, 0%, 10%);
-  -webkit-transition: all 0.25s ease;
-  transition: all 0.25s ease;
-}
-
-.Navbar .links .link a:hover {
-  color: hsl(193, 95%, 68%);
 }

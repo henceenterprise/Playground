@@ -1,14 +1,15 @@
-.UnidadesMedida {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    min-height: 100dvh;
-}
+@import "./variables";
 
-.UnidadesMedida .title {
+.UnidadesMedida {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100dvh;
+  .title {
     font-size: 2rem;
     font-weight: 700;
-    color: hsl(0 0 10);
+    color: hsl(0 0% 10%);
     margin-bottom: 2rem;
+  }
 }

@@ -1,39 +1,69 @@
+@import "./variables";
+
 .LandingPage {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    min-height: 100dvh;
-}
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100dvh;
 
-.LandingPage .icon-react-link {
-    width: 120px;
+  .title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: hsl(0 0% 10%);
+    margin-bottom: 2rem;
+  }
+
+  .signature {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: hsl(0 0% 30%);
+  }
+
+  .icon-react-link {
+    width: fit-content;
     height: auto;
-    transform-origin: center;
-    animation: rotate 8s linear infinite;
+    padding: 0 100px;
     margin-bottom: 0.25rem;
-}
+    position: relative;
 
-.LandingPage .icon-react-link .icon-react {
-    width: 100%;
-    height: auto;
+    .icon-react {
+      width: 120px;
+      height: auto;
+      transform-origin: center;
+      animation: rotate 8s linear infinite;
+    }
+
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      content: "";
+      border-radius: 50%;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: radial-gradient(
+        circle,
+        rgba(97, 218, 251, 0) 0%,
+        rgba(97, 218, 251, 0.35) 10%,
+        rgba(97, 218, 251, 0) 50%
+      );
+      opacity: 0;
+      z-index: -1;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    &:hover {
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
 }
 
 @keyframes rotate {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.LandingPage .title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: hsl(0 0 10);
-    margin-bottom: 2rem;
-}
-
-.LandingPage .signature {   
-    font-size: 1.5rem;
-    font-weight: 500;
-    color: hsl(0 0 30);
+  to {
+    transform: rotate(360deg);
+  }
 }

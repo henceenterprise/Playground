@@ -1,4 +1,6 @@
-*, html, body {
+*,
+html,
+body {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
@@ -10,7 +12,8 @@ html {
   font-family: "Montserrat", sans-serif;
 }
 
-a, button {
+a,
+button {
   text-decoration: none;
   background: transparent;
   border: none;
