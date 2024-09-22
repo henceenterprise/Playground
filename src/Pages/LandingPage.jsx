@@ -1,4 +1,4 @@
-import "./LandingPage.css";
+import '../css/min/landingPage.min.css';
 import iconReact from "../assets/icon-react.svg";
 
 function LandingPage() {

@@ -1,4 +1,4 @@
-import "./UnidadesMedida.css";
+import '../css/min/unidadesMedida.min.css';
 
 function UnidadesMedida() {
   return (

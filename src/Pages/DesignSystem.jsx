@@ -1,5 +1,5 @@
-import './DesignSystem.css';
-import design_system_concept from './assets/design_system_concept.webp';
+import '../css/min/designSystem.min.css';
+import design_system_concept from '../assets/design_system_concept.webp';
 
 function DesignSystem() {
     return (

@@ -1,0 +1,62 @@
+.Navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px;
+  }
+  
+  .Navbar .logo {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: hsl(0 0 10);
+    transition: all 0.25s ease;
+  }
+  
+  .Navbar .logo:hover {
+    color: hsl(193, 95%, 68%);
+  }
+  
+  .Navbar .links {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+  }
+  
+  .Navbar .links .link {
+      position: relative;
+  }
+  
+  .Navbar .links .link::after {
+      content: "";
+      height: 1px;
+      width: 0%;
+      background-color: hsl(193, 95%, 68%);
+      position: absolute;
+      bottom: -2px;
+      left: 0;  
+      transition: width 0.25s ease-in-out;
+  }
+  
+  .Navbar .links .link.active::after {
+    width: 100%;
+  }
+  
+  .Navbar .links .link a {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: hsl(0 0 10);
+    transition: all 0.25s ease;
+  }
+  
+  .Navbar .links .link a:hover {
+    color: hsl(193, 95%, 68%);
+  }
+  
