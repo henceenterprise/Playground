@@ -1,0 +1,37 @@
+@import "../tokens/size";
+@import "../tokens/container";
+
+$padding-sizes: (
+  xxl: $size48,
+  xl: $size40,
+  l: $size32,
+  m: $size28,
+  s: $size20,
+  xs: $size16,
+  xxs: $size12
+) !default;
+
+$container-sizes: (
+  xxl: $container-xxl,
+  xl: $container-xl,
+  l: $container-l,
+  m: $container-m,
+  s: $container-s,
+  xs: $container-xs,
+  xxs: $container-xxs
+) !default;
+
+.container {
+  max-width: $container-xxl;
+  padding-inline: $size48;
+  width: 100%;
+}
+
+@each $key, $value in $container-sizes {
+  @media (max-width: $value) {
+    .container {
+      padding-inline: map-get($padding-sizes, $key);
+      max-width: $value;
+    }
+  }
+}

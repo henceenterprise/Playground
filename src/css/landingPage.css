@@ -1,3 +1,51 @@
+.container {
+  max-width: 1920px;
+  padding-inline: 48px;
+  width: 100%;
+}
+
+@media (max-width: 1920px) {
+  .container {
+    padding-inline: 48px;
+    max-width: 1920px;
+  }
+}
+@media (max-width: 1440px) {
+  .container {
+    padding-inline: 40px;
+    max-width: 1440px;
+  }
+}
+@media (max-width: 1280px) {
+  .container {
+    padding-inline: 32px;
+    max-width: 1280px;
+  }
+}
+@media (max-width: 992px) {
+  .container {
+    padding-inline: 28px;
+    max-width: 992px;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    padding-inline: 20px;
+    max-width: 768px;
+  }
+}
+@media (max-width: 576px) {
+  .container {
+    padding-inline: 16px;
+    max-width: 576px;
+  }
+}
+@media (max-width: 320px) {
+  .container {
+    padding-inline: 12px;
+    max-width: 320px;
+  }
+}
 .LandingPage {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -33,6 +81,10 @@
   padding: 0 100px;
   margin-bottom: 0.25rem;
   position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .LandingPage .icon-react-link .icon-react {
   width: 120px;

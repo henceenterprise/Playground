@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import './css/min/navbar.min.css';
+import "./css/min/navbar.min.css";
 
 function Navbar() {
   const location = useLocation();
@@ -24,6 +24,13 @@ function Navbar() {
           }`}
         >
           <Link to="/unidades-de-medida">Unidades de Medida</Link>
+        </li>
+        <li
+          className={`link${
+            location.pathname === "/container-configurations" ? " active" : ""
+          }`}
+        >
+          <Link to="/container-configurations">Container Config</Link>
         </li>
       </ul>
     </nav>

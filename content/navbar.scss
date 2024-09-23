@@ -14,7 +14,7 @@
   .logo {
     font-size: 1.25rem;
     font-weight: 600;
-    color: hsl(0 0 10);
+    color: hsl(0 0% 10%);
     transition: all 0.25s ease;
     &:hover {
       color: hsl(193, 95%, 68%);
@@ -31,7 +31,7 @@
       a {
         font-size: 0.85rem;
         font-weight: 400;
-        color: hsl(0 0 10);
+        color: hsl(0 0% 10%);
         transition: all 0.25s ease;
         &:hover {
           color: hsl(193, 95%, 68%);
