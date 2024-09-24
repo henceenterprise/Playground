@@ -1,8 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+
+// CSS
 import "../css/min/containerConfig.min.css";
 
+// Components
+import Container from "../../components/container.jsx";
+
 function ContainerConfig() {
-  const [size, setSize] = useState(getResponsiveSize());
+  const initialSize = { width: "100%", height: "auto" };
+  const [sizeBox, setSizeBox] = useState(initialSize);
+  const [size, setSize] = useState(getResponsiveSize(sizeBox.width));
+  const boxRef = useRef(null);
+  const resizeObserverRef = useRef(null);
 
   const containerConfig = {
     xxl: { padding: "48px", maxWidth: "1920px" },
@@ -14,40 +23,83 @@ function ContainerConfig() {
     xxs: { padding: "12px", maxWidth: "320px" },
   };
 
-  // Função genérica que calcula o tamanho responsivo
-  function getResponsiveSize() {
-    const width = window.innerWidth;
-
-    if (width > 1440) return "xxl"; // Above 1440px
-    if (width > 1280) return "xl"; // From 1280px to 1440px
-    if (width > 992) return "l"; // From 992px to 1280px
-    if (width > 768) return "m"; // From 768px to 992px
-    if (width > 576) return "s"; // From 576px to 768px
-    if (width > 320) return "xs"; // From 320px to 576px
-    return "xxs"; // 320px and below
+  function getResponsiveSize(width) {
+    if (width > 1440) return "xxl";
+    if (width > 1280) return "xl";
+    if (width > 992) return "l";
+    if (width > 768) return "m";
+    if (width > 576) return "s";
+    if (width > 320) return "xs";
+    return "xxs";
   }
 
-  // Hook para atualizar tamanho ao redimensionar a janela
   useEffect(() => {
-    const handleResize = () => setSize(getResponsiveSize());
+    setSize(getResponsiveSize(sizeBox.width));
+  }, [sizeBox.width]);
 
-    window.addEventListener("resize", handleResize);
+  useEffect(() => {
+    const resizeObserver = new ResizeObserver((entries) => {
+      if (boxRef.current) {
+        const { width, height } = boxRef.current.getBoundingClientRect();
+        setSizeBox({ width, height });
+      }
+    });
 
-    // Remove o event listener ao desmontar o componente
-    return () => window.removeEventListener("resize", handleResize);
+    if (boxRef.current) {
+      resizeObserver.observe(boxRef.current);
+    }
+
+    resizeObserverRef.current = resizeObserver;
+
+    return () => {
+      if (resizeObserverRef.current && boxRef.current) {
+        resizeObserverRef.current.unobserve(boxRef.current);
+      }
+    };
   }, []);
 
   const { padding, maxWidth } = containerConfig[size];
 
+  const handleReset = () => {
+    if (resizeObserverRef.current && boxRef.current) {
+      resizeObserverRef.current.unobserve(boxRef.current);
+    }
+
+    setSizeBox(initialSize);
+
+    if (boxRef.current) {
+      boxRef.current.style.width = initialSize.width;
+      boxRef.current.style.height = initialSize.height;
+    }
+
+    setTimeout(() => {
+      if (resizeObserverRef.current && boxRef.current) {
+        resizeObserverRef.current.observe(boxRef.current);
+      }
+    }, 100);
+  };
+
   return (
-    <div className="ContainerConfig">
+    <main className="ContainerConfig">
       <h1 className="title">Container Configuration</h1>
-      <div className="container">
-        <p>width: 100%</p>
-        <p>max-width: {maxWidth}</p>
-        <p>padding-inline: {padding}</p>
-      </div>
-    </div>
+      <Container>
+        <div className="resizeble-box" ref={boxRef}>
+          <Container>
+            <p>max-width: {maxWidth}</p>
+            <p>padding-inline: {padding}</p>
+          </Container>
+        </div>
+        <p>
+          width: <span>{sizeBox.width}px</span>
+        </p>
+        <p>
+          height: <span>{sizeBox.height}px</span>
+        </p>
+        <button className="btn restart-resizebleBox" onClick={handleReset}>
+          Restart
+        </button>
+      </Container>
+    </main>
   );
 }
 

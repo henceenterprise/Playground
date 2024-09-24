@@ -6,50 +6,56 @@
   left: 0;
   right: 0;
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 24px;
-  .logo {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: hsl(0 0% 10%);
-    transition: all 0.25s ease;
-    &:hover {
-      color: hsl(193, 95%, 68%);
-    }
-  }
-  .links {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    .link {
-      position: relative;
-      a {
-        font-size: 0.85rem;
-        font-weight: 400;
-        color: hsl(0 0% 10%);
+  z-index: 9;
+
+  .container {
+    .content {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      .logo {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: $gray-10;
         transition: all 0.25s ease;
         &:hover {
-          color: hsl(193, 95%, 68%);
+          color: $lightblue-react;
         }
       }
-      &::after {
-        content: "";
-        height: 1px;
-        width: 0%;
-        background-color: hsl(193, 95%, 68%);
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        transition: width 0.25s ease-in-out;
-      }
-      &.active {
-        &::after {
-          width: 100%;
+      .links {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        .link {
+          position: relative;
+          a {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: $gray-10;
+            transition: all 0.25s ease;
+            &:hover {
+              color: $lightblue-react;
+            }
+          }
+          &::after {
+            content: "";
+            height: 1px;
+            width: 0%;
+            background-color: $lightblue-react;
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            transition: width 0.25s ease-in-out;
+          }
+          &.active {
+            &::after {
+              width: 100%;
+            }
+          }
         }
       }
     }

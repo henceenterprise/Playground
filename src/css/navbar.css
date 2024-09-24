@@ -1,57 +1,12 @@
-.container {
-  max-width: 1920px;
-  padding-inline: 48px;
-  width: 100%;
-}
-
-@media (max-width: 1920px) {
-  .container {
-    padding-inline: 48px;
-    max-width: 1920px;
-  }
-}
-@media (max-width: 1440px) {
-  .container {
-    padding-inline: 40px;
-    max-width: 1440px;
-  }
-}
-@media (max-width: 1280px) {
-  .container {
-    padding-inline: 32px;
-    max-width: 1280px;
-  }
-}
-@media (max-width: 992px) {
-  .container {
-    padding-inline: 28px;
-    max-width: 992px;
-  }
-}
-@media (max-width: 768px) {
-  .container {
-    padding-inline: 20px;
-    max-width: 768px;
-  }
-}
-@media (max-width: 576px) {
-  .container {
-    padding-inline: 16px;
-    max-width: 576px;
-  }
-}
-@media (max-width: 320px) {
-  .container {
-    padding-inline: 12px;
-    max-width: 320px;
-  }
-}
 .Navbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
+  z-index: 9;
+}
+.Navbar .container .content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -65,19 +20,18 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 12px 24px;
 }
-.Navbar .logo {
+.Navbar .container .content .logo {
   font-size: 1.25rem;
   font-weight: 600;
   color: hsl(0, 0%, 10%);
   -webkit-transition: all 0.25s ease;
   transition: all 0.25s ease;
 }
-.Navbar .logo:hover {
+.Navbar .container .content .logo:hover {
   color: hsl(193, 95%, 68%);
 }
-.Navbar .links {
+.Navbar .container .content .links {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -93,20 +47,20 @@
           justify-content: center;
   gap: 1rem;
 }
-.Navbar .links .link {
+.Navbar .container .content .links .link {
   position: relative;
 }
-.Navbar .links .link a {
+.Navbar .container .content .links .link a {
   font-size: 0.85rem;
   font-weight: 400;
   color: hsl(0, 0%, 10%);
   -webkit-transition: all 0.25s ease;
   transition: all 0.25s ease;
 }
-.Navbar .links .link a:hover {
+.Navbar .container .content .links .link a:hover {
   color: hsl(193, 95%, 68%);
 }
-.Navbar .links .link::after {
+.Navbar .container .content .links .link::after {
   content: "";
   height: 1px;
   width: 0%;
@@ -117,6 +71,6 @@
   -webkit-transition: width 0.25s ease-in-out;
   transition: width 0.25s ease-in-out;
 }
-.Navbar .links .link.active::after {
+.Navbar .container .content .links .link.active::after {
   width: 100%;
 }

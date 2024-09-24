@@ -1,14 +1,19 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "./css/normalize.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+// CSS
+import "./css/min/normalize.min.css";
+import "./css/min/main.min.css";
+
+// Components
+import Navbar from "./Navbar.jsx";
+
+// Pages
 import LandingPage from "./Pages/LandingPage.jsx";
 import DesignSystem from "./Pages/DesignSystem.jsx";
 import UnidadesMedida from "./Pages/UnidadesMedida.jsx";
 import ContainerConfig from "./Pages/ContainerConfig.jsx";
-
-import Navbar from "./Navbar.jsx";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

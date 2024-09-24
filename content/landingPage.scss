@@ -1,63 +1,69 @@
 @import "./variables";
 
 .LandingPage {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  min-height: 100dvh;
+  .container {
+    height: 100%;
 
-  .title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: hsl(0 0% 10%);
-    margin-bottom: 2rem;
-  }
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
 
-  .signature {
-    font-size: 1.5rem;
-    font-weight: 500;
-    color: hsl(0 0% 30%);
-  }
+      .title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: $gray-10;
+        margin-bottom: 2rem;
+      }
 
-  .icon-react-link {
-    width: fit-content;
-    height: auto;
-    padding: 0 100px;
-    margin-bottom: 0.25rem;
-    position: relative;
-    user-select: none;
+      .signature {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: $gray-30;
+      }
 
-    .icon-react {
-      width: 120px;
-      height: auto;
-      transform-origin: center;
-      animation: rotate 8s linear infinite;
-    }
+      .icon-react-link {
+        width: fit-content;
+        height: auto;
+        padding: 0 100px;
+        margin-bottom: 0.25rem;
+        position: relative;
+        user-select: none;
 
-    &::before {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      content: "";
-      border-radius: 50%;
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      background: radial-gradient(
-        circle,
-        rgba(97, 218, 251, 0) 0%,
-        rgba(97, 218, 251, 0.35) 10%,
-        rgba(97, 218, 251, 0) 50%
-      );
-      opacity: 0;
-      z-index: -1;
-      transition: opacity 0.5s ease-in-out;
-    }
+        .icon-react {
+          width: 120px;
+          height: auto;
+          transform-origin: center;
+          animation: rotate 8s linear infinite;
+        }
 
-    &:hover {
-      &::before {
-        opacity: 1;
+        &::before {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          content: "";
+          border-radius: 50%;
+          width: 100%;
+          aspect-ratio: 1 / 1;
+          background: radial-gradient(
+            circle,
+            rgba(97, 218, 251, 0) 0%,
+            rgba(97, 218, 251, 0.35) 10%,
+            rgba(97, 218, 251, 0) 50%
+          );
+          opacity: 0;
+          z-index: -1;
+          transition: opacity 0.5s ease-in-out;
+        }
+
+        &:hover {
+          &::before {
+            opacity: 1;
+          }
+        }
       }
     }
   }
