@@ -46,6 +46,9 @@
       -ms-flex-pack: center;
           justify-content: center;
   gap: 1rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 .Navbar .container .content .links .link {
   position: relative;
