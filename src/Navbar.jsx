@@ -5,7 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 import "./css/min/navbar.min.css";
 
 // Components
-import Container from "../components/container.jsx";
+import Container from "./components/container.jsx";
 
 function Navbar() {
   const location = useLocation();

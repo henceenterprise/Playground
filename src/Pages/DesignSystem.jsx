@@ -4,7 +4,7 @@ import design_system_concept from "../assets/design_system_concept.webp";
 import "../css/min/designSystem.min.css";
 
 // Components
-import Container from "../../components/container.jsx";
+import Container from "../components/container.jsx";
 
 function DesignSystem() {
   return (

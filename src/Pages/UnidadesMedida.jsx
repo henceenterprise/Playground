@@ -2,7 +2,7 @@
 import "../css/min/unidadesMedida.min.css";
 
 // Components
-import Container from "../../components/container.jsx";
+import Container from "../components/container.jsx";
 
 function UnidadesMedida() {
   return (

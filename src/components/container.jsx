@@ -1,4 +1,4 @@
-import "../src/css/min/container.min.css";
+import "../css/min/container.min.css";
 
 function Container({ children }) {
   return (

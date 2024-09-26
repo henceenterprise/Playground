@@ -4,7 +4,7 @@ import iconReact from "../assets/icon-react.svg";
 import "../css/min/landingPage.min.css";
 
 // Components
-import Container from "../../components/container.jsx";
+import Container from "../components/container.jsx";
 
 function LandingPage() {
   return (
