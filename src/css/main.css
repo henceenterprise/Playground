@@ -13,5 +13,5 @@ main {
       -ms-flex-direction: column;
           flex-direction: column;
   height: 100dvh;
-  padding-top: 48px;
+  padding-top: 56px;
 }

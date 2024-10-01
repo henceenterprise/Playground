@@ -7,6 +7,8 @@
   right: 0;
   width: 100%;
   z-index: 9;
+  background-color: $white;
+  box-shadow: 0px 4px 8px -4px rgba(0, 0, 0, 0.10);
 
   .container {
     .content {
@@ -24,39 +26,133 @@
           color: $lightblue-react;
         }
       }
-      .links {
+      .nav-links {
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        gap: 1rem;
+        gap: 40px;
         padding: 0;
         margin: 0;
         list-style: none;
-        .link {
+        .link-option {
           position: relative;
-          a {
-            font-size: 0.85rem;
-            font-weight: 400;
-            color: $gray-10;
-            transition: all 0.25s ease;
-            &:hover {
+          .link-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+            gap: 12px;
+
+            .link {
+              font-size: 16px;
+              font-weight: 400;
+              color: $gray-10;
+              transition: all 0.25s ease;
+              position: relative;
+
+              &::after {
+                content: "";
+                height: 1px;
+                width: 0%;
+                background-color: $lightblue-react;
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                transition: width 0.25s ease-in-out;
+              }
+              &:hover {
+                color: $lightblue-react;
+              }
+            }
+
+            .dropdown-btn {
+              width: 24px;
+              height: 24px;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border: 1px solid $lightblue-react;
+              transition: all 250ms ease-in-out;
+              padding: 4px;
+              background-color: $white;
               color: $lightblue-react;
+
+              .icon-arrow {
+                width: 100%;
+                fill: $lightblue-react;
+                transform-origin: center;
+                transition: all 250ms ease-in-out;
+              }
+
+              &.active {
+                background-color: $lightblue-react;
+                color: $white;
+                box-shadow: 0px 4px 8px -4px rgba(0, 0, 0, 0.10);
+
+                .icon-arrow {
+                  fill: $white;
+                  transform: rotate(180deg);
+                }
+              }
             }
           }
-          &::after {
-            content: "";
-            height: 1px;
-            width: 0%;
-            background-color: $lightblue-react;
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            transition: width 0.25s ease-in-out;
-          }
+
           &.active {
-            &::after {
-              width: 100%;
+            & > .link-container {
+              .link {
+                &::after {
+                  width: 100%;
+                }
+              }
+            }
+          }
+
+          .dropdown {
+            position: absolute;
+            padding: 0;
+            list-style: none;
+            background-color: $white;
+            border-radius: 0 0 8px 8px;
+            opacity: 0;
+            overflow: hidden;
+            visibility: hidden;
+            transition: all 250ms ease-in-out;
+            top: calc(100% + $size16);
+            min-width: calc(100% + (16px * 2));
+            left: -16px;
+            padding: 12px 16px 16px;
+            box-shadow: 0px 4px 8px -4px rgba(0, 0, 0, 0.10);
+
+            &.active {
+              opacity: 1;
+              visibility: visible;
+            }
+
+            .dropdown-link {
+              margin-bottom: 12px;
+              width: fit-content;
+
+              &:last-child {
+                margin-bottom: 0;
+              }
+              .link-container {
+                .link {
+                  white-space: nowrap;
+                  font-size: 14px;
+                }
+              }
+
+              &.active {
+                & > .link-container {
+                  .link {
+                    &::after {
+                      width: 100%;
+                    }
+                  }
+                }
+              }
             }
           }
         }

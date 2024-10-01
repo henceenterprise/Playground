@@ -1,4 +1,4 @@
-import design_system_concept from "../assets/design_system_concept.png";
+import design_system_concept from "../assets/img/design_system_concept.png";
 
 // CSS
 import "../css/min/designSystem.min.css";
