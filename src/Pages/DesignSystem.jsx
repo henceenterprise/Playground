@@ -9,8 +9,8 @@ import Container from "../components/container.jsx";
 function DesignSystem() {
   return (
     <main className="main design-system">
+      <h1>Design System</h1>
       <Container className={"main__container"}>
-        <h1>Design System</h1>
         <img
           className="design-system__img"
           src={design_system_concept}
