@@ -6,7 +6,7 @@ import Container from "../../components/container.jsx";
 
 function DesignTokens() {
   return (
-    <main className="DesignTokens">
+    <main className="main design-tokens">
       <Container>
         Design Tokens
       </Container>

@@ -1,9 +1,9 @@
 import "../css/min/container.min.css";
 
-function Container({ children }) {
+function Container({ children, className, center }) {
   return (
-    <div className="container">
-      <div className="content">{children}</div>
+    <div className={`container ${className ? className : ""}`}>
+      <div className={`container__content ${center ? "container__content--center" : ""}`}>{children}</div>
     </div>
   );
 }

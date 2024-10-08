@@ -1,34 +1,15 @@
-.LandingPage .container {
-  height: 100%;
-}
-.LandingPage .container .content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  height: 100%;
-}
-.LandingPage .container .content .title {
+.landing-page__title {
   font-size: 2.5rem;
   font-weight: 700;
   color: hsl(0, 0%, 10%);
   margin-bottom: 2rem;
 }
-.LandingPage .container .content .signature {
+.landing-page__signature {
   font-size: 1.5rem;
   font-weight: 500;
   color: hsl(0, 0%, 30%);
 }
-.LandingPage .container .content .icon-react-link {
+.landing-page__react-link {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -41,7 +22,7 @@
       -ms-user-select: none;
           user-select: none;
 }
-.LandingPage .container .content .icon-react-link .icon-react {
+.landing-page__react-link-icon {
   width: 120px;
   height: auto;
   -webkit-transform-origin: center;
@@ -50,7 +31,7 @@
   -webkit-animation: rotate 8s linear infinite;
           animation: rotate 8s linear infinite;
 }
-.LandingPage .container .content .icon-react-link::before {
+.landing-page__react-link::before {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -67,7 +48,7 @@
   -webkit-transition: opacity 0.5s ease-in-out;
   transition: opacity 0.5s ease-in-out;
 }
-.LandingPage .container .content .icon-react-link:hover::before {
+.landing-page__react-link:hover::before {
   opacity: 1;
 }
 

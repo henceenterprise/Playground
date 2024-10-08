@@ -1,8 +1,24 @@
-main {    
+.main {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
   height: 100dvh;
   padding-top: 56px; // navbar height
+
+  &__container {
+    height: 100%;
+
+    .container__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      height: 100%;
+
+      &--center {
+        justify-content: center;
+      }
+    }
+  }
 }

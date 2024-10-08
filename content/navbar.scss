@@ -1,6 +1,6 @@
 @import "./variables";
 
-.Navbar {
+.nav {
   position: fixed;
   top: 0;
   left: 0;
@@ -8,154 +8,168 @@
   width: 100%;
   z-index: 9;
   background-color: $white;
-  box-shadow: 0px 4px 8px -4px rgba(0, 0, 0, 0.10);
+  box-shadow: 0 4px 8px -4px rgba(0, 0, 0, 0.1);
 
-  .container {
-    .content {
+  &__container {
+    .container__content {
       display: flex;
-      flex-direction: row;
       align-items: center;
       justify-content: space-between;
+    }
+  }
 
-      .logo {
-        font-size: 1.25rem;
-        font-weight: 600;
-        color: $gray-10;
-        transition: all 0.25s ease;
-        &:hover {
-          color: $lightblue-react;
+  &__logo {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: $gray-10;
+    transition: color 0.25s ease;
+
+    &:hover {
+      color: $lightblue-react;
+    }
+  }
+
+  &__links-list {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  &__list-item {
+    position: relative;
+
+    &--active {
+      .nav__link {
+        &::after {
+          width: 100%;
         }
       }
-      .nav-links {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 40px;
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        .link-option {
-          position: relative;
-          .link-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: row;
-            gap: 12px;
+    }
+  }
 
-            .link {
-              font-size: 16px;
-              font-weight: 400;
-              color: $gray-10;
-              transition: all 0.25s ease;
-              position: relative;
+  &__item-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
 
-              &::after {
-                content: "";
-                height: 1px;
-                width: 0%;
-                background-color: $lightblue-react;
-                position: absolute;
-                bottom: -2px;
-                left: 0;
-                transition: width 0.25s ease-in-out;
-              }
-              &:hover {
-                color: $lightblue-react;
-              }
-            }
+  &__link {
+    font-size: 16px;
+    font-weight: 400;
+    color: $gray-10;
+    transition: color 0.25s ease, width 0.25s ease;
+    position: relative;
 
-            .dropdown-btn {
-              width: 24px;
-              height: 24px;
-              border-radius: 50%;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              border: 1px solid $lightblue-react;
-              transition: all 250ms ease-in-out;
-              padding: 4px;
-              background-color: $white;
-              color: $lightblue-react;
+    &::after {
+      content: "";
+      height: 1px;
+      width: 0;
+      background-color: $lightblue-react;
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      transition: width 0.25s ease-in-out;
+    }
 
-              .icon-arrow {
-                width: 100%;
-                fill: $lightblue-react;
-                transform-origin: center;
-                transition: all 250ms ease-in-out;
-              }
+    &:hover {
+      color: $lightblue-react;
+    }
+  }
 
-              &.active {
-                background-color: $lightblue-react;
-                color: $white;
-                box-shadow: 0px 4px 8px -4px rgba(0, 0, 0, 0.10);
+  &__dropdown {
+    &-button {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+      border: 1px solid $lightblue-react;
+      background-color: $white;
+      color: $lightblue-react;
+      transition: background-color 0.25s ease, color 0.25s ease;
 
-                .icon-arrow {
-                  fill: $white;
-                  transform: rotate(180deg);
-                }
-              }
-            }
-          }
+      &-icon {
+        width: 100%;
+        fill: $lightblue-react;
+        transform-origin: center;
+        transition: transform 0.25s ease, fill 0.25s ease;
+      }
 
-          &.active {
-            & > .link-container {
-              .link {
-                &::after {
-                  width: 100%;
-                }
-              }
-            }
-          }
+      &--active {
+        background-color: $lightblue-react;
+        color: $white;
+        box-shadow: 0 4px 8px -4px rgba(0, 0, 0, 0.1);
 
-          .dropdown {
-            position: absolute;
-            padding: 0;
-            list-style: none;
-            background-color: $white;
-            border-radius: 0 0 8px 8px;
-            opacity: 0;
-            overflow: hidden;
-            visibility: hidden;
-            transition: all 250ms ease-in-out;
-            top: calc(100% + $size16);
-            min-width: calc(100% + (16px * 2));
-            left: -16px;
-            padding: 12px 16px 16px;
-            box-shadow: 0px 4px 8px -4px rgba(0, 0, 0, 0.10);
+        .nav__dropdown-button-icon {
+          fill: $white;
+          transform: rotate(180deg);
+        }
+      }
+    }
 
-            &.active {
-              opacity: 1;
-              visibility: visible;
-            }
+    &-links-list {
+      position: absolute;
+      padding: 12px 16px 16px;
+      list-style: none;
+      background-color: $white;
+      border-radius: 0 0 8px 8px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+      top: calc(100% + $size16);
+      min-width: calc(100% + (16px * 2));
+      left: -16px;
+      box-shadow: 0 4px 8px -4px rgba(0, 0, 0, 0.1);
 
-            .dropdown-link {
-              margin-bottom: 12px;
-              width: fit-content;
+      &--active {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
 
-              &:last-child {
-                margin-bottom: 0;
-              }
-              .link-container {
-                .link {
-                  white-space: nowrap;
-                  font-size: 14px;
-                }
-              }
+    &-list-item {
+      margin-bottom: 12px;
+      white-space: nowrap;
+      font-size: 14px;
 
-              &.active {
-                & > .link-container {
-                  .link {
-                    &::after {
-                      width: 100%;
-                    }
-                  }
-                }
-              }
-            }
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &--active {
+        .nav__dropdown-link {
+          &::after {
+            width: 100%;
           }
         }
+      }
+    }
+
+    &-item-wrapper {
+    }
+
+    &-link {
+      position: relative;
+      font-size: 14px;
+
+      &::after {
+        content: "";
+        height: 1px;
+        width: 0;
+        background-color: $lightblue-react;
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        transition: width 0.25s ease-in-out;
+      }
+
+      &:hover {
+        color: $lightblue-react;
       }
     }
   }

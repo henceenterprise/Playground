@@ -1,17 +1,8 @@
 @import "../variables";
 
-.DesignSystem {
-  .container {
-    height: 100%;
+.design-system {
 
-    .content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: 100%;
-
-      .img-design_system_concept {
+      &__img {
         width: 100%;
         max-width: 500px;
         margin: 0 auto;
@@ -19,14 +10,14 @@
         margin-bottom: 72px;
       }
 
-      .info {
-        .subtitle {
+      &__info {
+        &-subtitle {
           margin-top: 0;
           font-size: 24px;
           margin-bottom: 4px;
         }
 
-        .prompt {
+        &-prompt {
           color: $gray-50;
           font-size: 14px;
           margin-bottom: 24px;
@@ -36,13 +27,13 @@
           }
         }
 
-        .description {
+        &-description {
           font-size: 18px;
           line-height: 1.4;
           margin-bottom: 16px;
         }
 
-        .list {
+        &-list {
           li {
             line-height: 1.4;
             font-size: 18px;
@@ -89,5 +80,3 @@
         }
       }
     }
-  }
-}

@@ -6,7 +6,7 @@ import Container from "../../components/container.jsx";
 
 function ComponentLibrary() {
   return (
-    <main className="ComponentLibrary">
+    <main className="main component-library">
       <Container>Component Library</Container>
     </main>
   );

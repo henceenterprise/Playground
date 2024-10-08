@@ -6,7 +6,7 @@ import Container from "../../components/container.jsx";
 
 function ContentDesign() {
   return (
-    <main className="ContentDesign">
+    <main className="main content-design">
       <Container>Content Design</Container>
     </main>
   );

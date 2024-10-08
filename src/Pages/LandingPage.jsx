@@ -8,19 +8,24 @@ import Container from "../components/container.jsx";
 
 function LandingPage() {
   return (
-    <main className="LandingPage">
-      <Container>
+    <main className="main landing-page">
+      <Container className={"main__container"} center={true}>
         <a
           draggable="false"
-          className="icon-react-link"
+          className="landing-page__react-link"
           href="https://react.dev/learn"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img draggable="false" className="icon-react" src={iconReact} alt="Icon React" />
+          <img
+            draggable="false"
+            className="landing-page__react-link-icon"
+            src={iconReact}
+            alt="Icon React"
+          />
         </a>
-        <h1 className="title">React Playground</h1>
-        <h2 className="signature">David Vinagre</h2>
+        <h1 className="landing-page__title">React Playground</h1>
+        <h2 className="landing-page__signature">David Vinagre</h2>
       </Container>
     </main>
   );

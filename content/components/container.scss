@@ -5,7 +5,7 @@
   container-type: inline-size;
   width: 100%;
 
-  .content {
+  &__content {
     width: 100%;
     margin: 0 auto;
     max-width: $container-xxl;
@@ -17,7 +17,7 @@
 
 @container (max-width: 1920px) {
   .container {
-    .content {
+    &__content {
       max-width: $container-xxl;
       padding-inline: $size48;
     }
@@ -26,7 +26,7 @@
 
 @container (max-width: 1440px) {
   .container {
-    .content {
+    &__content {
       max-width: $container-xl;
       padding-inline: $size40;
     }
@@ -35,7 +35,7 @@
 
 @container (max-width: 1280px) {
   .container {
-    .content {
+    &__content {
       max-width: $container-l;
       padding-inline: $size32;
     }
@@ -44,7 +44,7 @@
 
 @container (max-width: 992px) {
   .container {
-    .content {
+    &__content {
       max-width: $container-m;
       padding-inline: $size28;
     }
@@ -53,7 +53,7 @@
 
 @container (max-width: 768px) {
   .container {
-    .content {
+    &__content {
       max-width: $container-s;
       padding-inline: $size20;
     }
@@ -62,7 +62,7 @@
 
 @container (max-width: 576px) {
   .container {
-    .content {
+    &__content {
       max-width: $container-xs;
       padding-inline: $size16;
     }
@@ -71,7 +71,7 @@
 
 @container (max-width: 320px) {
   .container {
-    .content {
+    &__content {
       max-width: $container-xxs;
       padding-inline: $size12;
     }

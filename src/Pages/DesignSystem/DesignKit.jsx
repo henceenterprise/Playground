@@ -6,7 +6,7 @@ import Container from "../../components/container.jsx";
 
 function DesignKit() {
   return (
-    <main className="DesignKit">
+    <main className="main design-kit">
       <Container>Design Kit</Container>
     </main>
   );

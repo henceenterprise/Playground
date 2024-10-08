@@ -1,6 +1,6 @@
 @import "../variables";
 
-.ContainerConfig {
+.container-config {
   width: 100%;
   position: relative;
 
@@ -21,23 +21,7 @@
     resize: both;
     overflow: auto;
 
-    &-properties {
-      position: absolute;
-      top: 4px;
-      left: 4px;
-
-      p {
-        font-size: 12px;
-        font-weight: 400;
-        line-height: 1.5;
-
-        span {
-          font-weight: 500;
-        }
-      }
-    }
-
-    .container {
+    &__container {
       position: relative;
 
       &::before {
@@ -50,7 +34,7 @@
         color: $gray-50;
       }
 
-      .content {
+      .container__content {
         border: 1px dashed $gray-50;
 
         p {
@@ -64,19 +48,17 @@
     }
   }
 
-  .btn {
-    &.restart-resizebleBox {
-      background-color: red;
-      color: white;
-      padding: 4px 8px;
-    }
+  .button {
+    background-color: red;
+    color: white;
+    padding: 4px 8px;
   }
 }
 
 @container (max-width: 1920px) {
-  .ContainerConfig {
+  .container-config {
     .resizeble-box {
-      .container {
+      &__container {
         &::before {
           left: $size48;
         }
@@ -88,9 +70,9 @@
 }
 
 @container (max-width: 1440px) {
-  .ContainerConfig {
+  .container-config {
     .resizeble-box {
-      .container {
+      &__container {
         &::before {
           left: $size40;
         }
@@ -102,9 +84,9 @@
 }
 
 @container (max-width: 1280px) {
-  .ContainerConfig {
+  .container-config {
     .resizeble-box {
-      .container {
+      &__container {
         &::before {
           left: $size32;
         }
@@ -116,9 +98,9 @@
 }
 
 @container (max-width: 992px) {
-  .ContainerConfig {
+  .container-config {
     .resizeble-box {
-      .container {
+      &__container {
         &::before {
           left: $size28;
         }
@@ -130,9 +112,9 @@
 }
 
 @container (max-width: 768px) {
-  .ContainerConfig {
+  .container-config {
     .resizeble-box {
-      .container {
+      &__container {
         &::before {
           left: $size20;
         }
@@ -144,9 +126,9 @@
 }
 
 @container (max-width: 576px) {
-  .ContainerConfig {
+  .container-config {
     .resizeble-box {
-      .container {
+      &__container {
         &::before {
           left: $size16;
         }
@@ -158,9 +140,9 @@
 }
 
 @container (max-width: 320px) {
-  .ContainerConfig {
+  .container-config {
     .resizeble-box {
-      .container {
+      &__container {
         &::before {
           left: $size12;
         }

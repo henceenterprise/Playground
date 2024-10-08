@@ -34,28 +34,32 @@ function Navbar() {
   }, [dropdownOpen]);
 
   return (
-    <nav className="Navbar">
-      <Container>
-        <Link draggable="false" className="logo" to="/">
+    <nav className="nav">
+      <Container className="nav__container">
+        <Link draggable="false" className="nav__logo" to="/">
           React Playground
         </Link>
-        <ul className="nav-links">
+        <ul className="nav__links-list">
           <li
-            className={`link-option${
-              location.pathname === "/design-system" ? " active" : ""
+            className={`nav__list-item${
+              location.pathname === "/design-system"
+                ? " nav__list-item--active"
+                : ""
             }`}
             ref={dropdownRef}
           >
-            <div className="link-container">
-              <Link draggable="false" className="link" to="/design-system">
+            <div className="nav__item-wrapper">
+              <Link draggable="false" className="nav__link" to="/design-system">
                 Design System
               </Link>
               <button
-                className={`dropdown-btn${dropdownOpen ? " active" : ""}`}
+                className={`nav__dropdown-button${
+                  dropdownOpen ? " nav__dropdown-button--active" : ""
+                }`}
                 onClick={toggleDropdown}
               >
                 <svg
-                  className="icon-arrow"
+                  className="nav__dropdown-button-icon"
                   viewBox="0 0 25 25"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -64,47 +68,75 @@ function Navbar() {
                 </svg>
               </button>
             </div>
-            <ul className={`dropdown${dropdownOpen ? " active" : ""}`}>
+            <ul
+              className={`nav__dropdown-links-list${
+                dropdownOpen ? " nav__dropdown-links-list--active" : ""
+              }`}
+            >
               <li
-                className={`dropdown-link${
-                  location.pathname === "/design-tokens" ? " active" : ""
+                className={`nav__dropdown-list-item${
+                  location.pathname === "/design-tokens"
+                    ? " nav__dropdown-list-item--active"
+                    : ""
                 }`}
               >
-                <div className="link-container">
-                  <Link draggable="false" className="link" to="/design-tokens">
+                <div className="nav__dropdown-item-wrapper">
+                  <Link
+                    draggable="false"
+                    className="nav__dropdown-link"
+                    to="/design-tokens"
+                  >
                     Design Tokens
                   </Link>
                 </div>
               </li>
               <li
-                className={`dropdown-link${
-                  location.pathname === "/component-library" ? " active" : ""
+                className={`nav__dropdown-list-item${
+                  location.pathname === "/component-library"
+                    ? " nav__dropdown-list-item--active"
+                    : ""
                 }`}
               >
-                <div className="link-container">
-                  <Link draggable="false" className="link" to="/component-library">
+                <div className="nav__dropdown-item-wrapper">
+                  <Link
+                    draggable="false"
+                    className="nav__dropdown-link"
+                    to="/component-library"
+                  >
                     Component Library
                   </Link>
                 </div>
               </li>
               <li
-                className={`dropdown-link${
-                  location.pathname === "/design-kit" ? " active" : ""
+                className={`nav__dropdown-list-item${
+                  location.pathname === "/design-kit"
+                    ? " nav__dropdown-list-item--active"
+                    : ""
                 }`}
               >
-                <div className="link-container">
-                  <Link draggable="false" className="link" to="/design-kit">
+                <div className="nav__dropdown-item-wrapper">
+                  <Link
+                    draggable="false"
+                    className="nav__dropdown-link"
+                    to="/design-kit"
+                  >
                     Design Kit
                   </Link>
                 </div>
               </li>
               <li
-                className={`dropdown-link${
-                  location.pathname === "/content-design" ? " active" : ""
+                className={`nav__dropdown-list-item${
+                  location.pathname === "/content-design"
+                    ? " nav__dropdown-list-item--active"
+                    : ""
                 }`}
               >
-                <div className="link-container">
-                  <Link draggable="false" className="link" to="/content-design">
+                <div className="nav__dropdown-item-wrapper">
+                  <Link
+                    draggable="false"
+                    className="nav__dropdown-link"
+                    to="/content-design"
+                  >
                     Content Design
                   </Link>
                 </div>
@@ -112,23 +144,35 @@ function Navbar() {
             </ul>
           </li>
           <li
-            className={`link-option${
-              location.pathname === "/unidades-de-medida" ? " active" : ""
+            className={`nav__list-item${
+              location.pathname === "/unidades-de-medida"
+                ? " nav__list-item--active"
+                : ""
             }`}
           >
-            <div className="link-container">
-              <Link draggable="false" className="link" to="/unidades-de-medida">
+            <div className="nav__item-wrapper">
+              <Link
+                draggable="false"
+                className="nav__link"
+                to="/unidades-de-medida"
+              >
                 Unidades de Medida
               </Link>
             </div>
           </li>
           <li
-            className={`link-option${
-              location.pathname === "/container-configurations" ? " active" : ""
+            className={`nav__list-item${
+              location.pathname === "/container-configurations"
+                ? " nav__list-item--active"
+                : ""
             }`}
           >
-            <div className="link-container">
-              <Link draggable="false" className="link" to="/container-configurations">
+            <div className="nav__item-wrapper">
+              <Link
+                draggable="false"
+                className="nav__link"
+                to="/container-configurations"
+              >
                 Container Config
               </Link>
             </div>

@@ -8,25 +8,27 @@ import Container from "../components/container.jsx";
 
 function DesignSystem() {
   return (
-    <main className="DesignSystem">
-      <Container>
-        <h1 className="title">Design System</h1>
+    <main className="main design-system">
+      <Container className={"main__container"}>
+        <h1>Design System</h1>
         <img
-          className="img-design_system_concept"
+          className="design-system__img"
           src={design_system_concept}
           alt=""
         />
-        <div className="info">
-          <h2 className="subtitle">Chat GPT sobre a imagem:</h2>
-          <span className="prompt">
+        <div className="design-system__info">
+          <h2 className="design-system__info-subtitle">
+            Chat GPT sobre a imagem:
+          </h2>
+          <span className="design-system__info-prompt">
             Explica-me esta imagem, o que são as quatro coisas?
           </span>
-          <p className="description">
+          <p className="design-system__info-description">
             Esta imagem ilustra os componentes principais de um Design System e
             a relação entre as várias equipas que contribuem para sua criação e
             manutenção. Vamos destrinchar os principais elementos:
           </p>
-          <ol className="list">
+          <ol className="design-system__info-list">
             <li>
               <strong className="orange">Design Tokens:</strong>
               <ul>

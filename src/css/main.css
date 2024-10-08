@@ -1,4 +1,4 @@
-main {
+.main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -14,4 +14,28 @@ main {
           flex-direction: column;
   height: 100dvh;
   padding-top: 56px;
+}
+.main__container {
+  height: 100%;
+}
+.main__container .container__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+.main__container .container__content--center {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }

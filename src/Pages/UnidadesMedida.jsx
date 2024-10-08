@@ -6,8 +6,8 @@ import Container from "../components/container.jsx";
 
 function UnidadesMedida() {
   return (
-    <main className="UnidadesMedida">
-      <h1 className="title">Unidades de Medida</h1>
+    <main className="main unidades-medida">
+      <h1>Unidades de Medida</h1>
       <Container>unity calculator</Container>
     </main>
   );

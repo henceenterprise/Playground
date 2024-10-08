@@ -80,11 +80,11 @@ function ContainerConfig() {
   };
 
   return (
-    <main className="ContainerConfig">
-      <h1 className="title">Container Configuration</h1>
-      <Container>
+    <main className="main container-config">
+      <h1>Container Configuration</h1>
+      <Container className={"container-config__container"}>
         <div className="resizeble-box" ref={boxRef}>
-          <Container>
+          <Container className={"resizeble-box__container"}>
             <p>max-width: {maxWidth}</p>
             <p>padding-inline: {padding}</p>
           </Container>
@@ -95,7 +95,7 @@ function ContainerConfig() {
         <p>
           height: <span>{sizeBox.height}px</span>
         </p>
-        <button className="btn restart-resizebleBox" onClick={handleReset}>
+        <button className="button" onClick={handleReset}>
           Restart
         </button>
       </Container>
