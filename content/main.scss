@@ -3,8 +3,7 @@
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  height: 100dvh;
-  padding-top: 56px; // navbar height
+  min-height: 100dvh;
 
   &__container {
     height: 100%;
@@ -21,4 +20,9 @@
       }
     }
   }
+}
+
+#root {
+  display: grid;
+  grid-template-columns: calc(240px + 16px) 1fr;
 }

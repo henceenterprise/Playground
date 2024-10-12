@@ -82,9 +82,9 @@ function ContainerConfig() {
   return (
     <main className="main container-config">
       <h1>Container Configuration</h1>
-      <Container className={"container-config__container"}>
+      <Container>
         <div className="resizeble-box" ref={boxRef}>
-          <Container className={"resizeble-box__container"}>
+          <Container>
             <p>max-width: {maxWidth}</p>
             <p>padding-inline: {padding}</p>
           </Container>

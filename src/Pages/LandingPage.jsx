@@ -9,7 +9,7 @@ import Container from "../components/container.jsx";
 function LandingPage() {
   return (
     <main className="main landing-page">
-      <Container className={"main__container"} center={true}>
+      <Container center={true}>
         <a
           draggable="false"
           className="landing-page__react-link"

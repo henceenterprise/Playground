@@ -1,10 +1,10 @@
 import "../css/min/container.min.css";
 
-function Container({ children, className, center }) {
+function Container({ children, center = false }) {
   return (
-    <section className={`container ${className ? className : ""}`}>
+    <div className={`container`}>
       <div className={`container__content ${center ? "container__content--center" : ""}`}>{children}</div>
-    </section>
+    </div>
   );
 }
 

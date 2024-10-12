@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 
 // CSS
 import "./css/min/navbar.min.css";
+import "./css/min/searchBar.min.css";
 
 // Components
 import Container from "./components/container.jsx";
@@ -16,29 +17,25 @@ function Navbar() {
     setDropdownOpen((prev) => !prev);
   };
 
-  const handleClickOutside = (event) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-      setDropdownOpen(false);
-    }
-  };
-
-  useEffect(() => {
-    if (dropdownOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [dropdownOpen]);
-
   return (
     <nav className="nav">
-      <Container className="nav__container">
-        <Link draggable="false" className="nav__logo" to="/">
-          React Playground
-        </Link>
+      <Container>
+        <div className="nav__wrapper-logo">
+          <Link draggable="false" className="nav__logo" to="/">
+            React Playground
+          </Link>
+          <button className="nav__button-minimize nav__button-minimize--open">
+            <svg
+              className="nav__button-minimize-icon"
+              viewBox="0 0 25 25"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M22.2378 8.29578L12.2378 18.2958L2.23779 8.29578L4.01279 6.52078L12.2378 14.7458L20.4628 6.52077L22.2378 8.29578Z" />
+            </svg>
+          </button>
+        </div>
+        <div className="search-bar">search bar</div>
         <ul className="nav__links-list">
           <li
             className={`nav__list-item${

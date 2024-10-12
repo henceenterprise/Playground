@@ -21,7 +21,7 @@
     resize: both;
     overflow: auto;
 
-    &__container {
+    .container {
       position: relative;
 
       &::before {
@@ -34,7 +34,7 @@
         color: $gray-50;
       }
 
-      .container__content {
+      &__content {
         border: 1px dashed $gray-50;
 
         p {
@@ -58,7 +58,7 @@
 @container (max-width: 1920px) {
   .container-config {
     .resizeble-box {
-      &__container {
+      .container {
         &::before {
           left: $size48;
         }
@@ -70,7 +70,7 @@
 @container (max-width: 1440px) {
   .container-config {
     .resizeble-box {
-      &__container {
+      .container {
         &::before {
           left: $size40;
         }
@@ -82,7 +82,7 @@
 @container (max-width: 1280px) {
   .container-config {
     .resizeble-box {
-      &__container {
+      .container {
         &::before {
           left: $size32;
         }
@@ -94,7 +94,7 @@
 @container (max-width: 992px) {
   .container-config {
     .resizeble-box {
-      &__container {
+      .container {
         &::before {
           left: $size28;
         }
@@ -106,7 +106,7 @@
 @container (max-width: 768px) {
   .container-config {
     .resizeble-box {
-      &__container {
+      .container {
         &::before {
           left: $size20;
         }
@@ -118,7 +118,7 @@
 @container (max-width: 576px) {
   .container-config {
     .resizeble-box {
-      &__container {
+      .container {
         &::before {
           left: $size16;
         }
@@ -130,7 +130,7 @@
 @container (max-width: 320px) {
   .container-config {
     .resizeble-box {
-      &__container {
+      .container {
         &::before {
           left: $size12;
         }

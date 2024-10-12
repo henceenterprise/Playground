@@ -12,8 +12,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 100dvh;
-  padding-top: 56px;
+  min-height: 100dvh;
 }
 .main__container {
   height: 100%;
@@ -38,4 +37,9 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+#root {
+  display: grid;
+  grid-template-columns: 256px 1fr;
 }
