@@ -13,6 +13,10 @@
       -ms-flex-direction: column;
           flex-direction: column;
   min-height: 100dvh;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
+  width: 100%;
 }
 .main__container {
   height: 100%;
@@ -40,6 +44,17 @@
 }
 
 #root {
-  display: grid;
-  grid-template-columns: 256px 1fr;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }

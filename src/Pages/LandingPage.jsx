@@ -1,4 +1,4 @@
-import iconReact from "../assets/svg/icon-react.svg";
+import iconReact from "../assets/icons/ic__react.svg";
 
 // CSS
 import "../css/min/landingPage.min.css";
