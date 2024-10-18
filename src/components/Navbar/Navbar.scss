@@ -1,4 +1,4 @@
-@use "@/styles/main";
+@use "@/styles/main" as *;
 
 .nav {
   position: sticky;
@@ -18,7 +18,7 @@
 
   .container {
     height: 100%;
-    background-color: main.$white;
+    background-color: $white;
     box-shadow: 4px 0px 8px -4px rgba(0, 0, 0, 0.1);
 
     &__content {
@@ -67,13 +67,13 @@
   &__logo {
     font-size: 18px;
     font-weight: 700;
-    color: main.$gray-10;
+    color: $gray-10;
     transition: color 0.25s ease;
     display: block;
     white-space: nowrap;
 
     &:hover {
-      color: main.$lightblue-react;
+      color: $lightblue-react;
     }
   }
 
@@ -113,7 +113,7 @@
       &__link {
         font-size: 14px;
         font-weight: 400;
-        color: main.$gray-10;
+        color: $gray-10;
         position: relative;
         white-space: nowrap;
         // strech-link
@@ -129,7 +129,7 @@
         content: "";
         height: calc(40px + 8px);
         width: calc(100% + 32px);
-        background-color: main.$lightblue-95;
+        background-color: $lightblue-95;
         position: absolute;
         top: -4px;
         left: -16px;
@@ -169,7 +169,7 @@
 
         &:hover, &.nav__list-item--active {
           .nav__list-item__link {
-            color: main.$lightblue-react;
+            color: $lightblue-react;
           }
         }
       }

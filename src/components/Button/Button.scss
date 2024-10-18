@@ -1,6 +1,4 @@
-@use '@/styles/colors';
-@use '@/styles/fonts';
-@use '@/styles/sizes';
+@use "@/styles/main" as *;
 
 .button {
   position: relative;
@@ -16,9 +14,9 @@
   cursor: pointer;
   transition: all 0.25s ease;
   // style
-  background-color: colors.$lightblue-95;
-  border: 2px solid colors.$lightblue-85;
-  box-shadow: 0 0px 8px -4px rgba(colors.$black, 0.1);
+  background-color: $lightblue-95;
+  border: 2px solid $lightblue-85;
+  box-shadow: 0 0px 8px -4px rgba($black, 0.1);
 
   &__icon {
     width: 24px;
@@ -32,14 +30,14 @@
     transition: all 0.5s ease;
 
     svg {
-      fill: colors.$gray-25;
+      fill: $gray-25;
     }
   }
 
   &__text {
     font-size: 16px;
     font-weight: 500;
-    color: colors.$lightblue-react;
+    color: $lightblue-react;
     white-space: nowrap;
   }
 
@@ -48,7 +46,7 @@
   }
 
   &:hover, &--active {
-    background-color: colors.$lightblue-90;
-    box-shadow: 0 0px 8px -4px rgba(colors.$black, 0.3);
+    background-color: $lightblue-90;
+    box-shadow: 0 0px 8px -4px rgba($black, 0.3);
   }
 }

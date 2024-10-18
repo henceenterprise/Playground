@@ -1,4 +1,4 @@
-@use "@/styles/main";
+@use "@/styles/main" as *;
 
 .landing-page {
   .container {
@@ -14,14 +14,14 @@
   &__title {
     font-size: 2.5rem;
     font-weight: 700;
-    color: main.$gray-10;
+    color: $gray-10;
     margin-bottom: 2rem;
   }
 
   &__signature {
     font-size: 1.5rem;
     font-weight: 500;
-    color: main.$gray-30;
+    color: $gray-30;
   }
 
   &__react-link {

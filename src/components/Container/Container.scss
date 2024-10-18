@@ -1,5 +1,4 @@
-@use '@/styles/sizes';
-@use '@/styles/containers';
+@use "@/styles/main" as *;
 
 .container {
   container-type: inline-size;
@@ -8,9 +7,9 @@
   &__content {
     width: 100%;
     margin: 0 auto;
-    max-width: containers.$container-xxl;
-    padding-inline: sizes.$size48;
-    padding-block: sizes.$size16;
+    max-width: $container-xxl;
+    padding-inline: $size48;
+    padding-block: $size16;
     min-width: 188px;
   }
 }
@@ -18,8 +17,8 @@
 @container (max-width: 1920px) {
   .container {
     &__content {
-      max-width: containers.$container-xxl;
-      padding-inline: sizes.$size48;
+      max-width: $container-xxl;
+      padding-inline: $size48;
     }
   }
 }
@@ -27,8 +26,8 @@
 @container (max-width: 1440px) {
   .container {
     &__content {
-      max-width: containers.$container-xl;
-      padding-inline: sizes.$size40;
+      max-width: $container-xl;
+      padding-inline: $size40;
     }
   }
 }
@@ -36,8 +35,8 @@
 @container (max-width: 1280px) {
   .container {
     &__content {
-      max-width: containers.$container-l;
-      padding-inline: sizes.$size32;
+      max-width: $container-l;
+      padding-inline: $size32;
     }
   }
 }
@@ -45,8 +44,8 @@
 @container (max-width: 992px) {
   .container {
     &__content {
-      max-width: containers.$container-m;
-      padding-inline: sizes.$size28;
+      max-width: $container-m;
+      padding-inline: $size28;
     }
   }
 }
@@ -54,8 +53,8 @@
 @container (max-width: 768px) {
   .container {
     &__content {
-      max-width: containers.$container-s;
-      padding-inline: sizes.$size20;
+      max-width: $container-s;
+      padding-inline: $size20;
     }
   }
 }
@@ -63,8 +62,8 @@
 @container (max-width: 576px) {
   .container {
     &__content {
-      max-width: containers.$container-xs;
-      padding-inline: sizes.$size16;
+      max-width: $container-xs;
+      padding-inline: $size16;
     }
   }
 }
@@ -72,8 +71,8 @@
 @container (max-width: 320px) {
   .container {
     &__content {
-      max-width: containers.$container-xxs;
-      padding-inline: sizes.$size12;
+      max-width: $container-xxs;
+      padding-inline: $size12;
     }
   }
 }
