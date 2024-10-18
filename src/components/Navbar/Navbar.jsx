@@ -7,10 +7,10 @@ import SearchBar from "../SearchBar";
 import Button from '../Button';
 
 // Icons
-import ic__designKit from "../../assets/icons/ic__design-kit.png";
-import ic__designTokens from "../../assets/icons/ic__design-tokens.png";
-import ic__componentLibrary from "../../assets/icons/ic__component-library.png";
-import ic__contentDesign from "../../assets/icons/ic__content-design.png";
+import ic__designKit from "@/assets/icons/ic__design-kit.png";
+import ic__designTokens from "@/assets/icons/ic__design-tokens.png";
+import ic__componentLibrary from "@/assets/icons/ic__component-library.png";
+import ic__contentDesign from "@/assets/icons/ic__content-design.png";
 
 // CSS
 import "./Navbar.scss";

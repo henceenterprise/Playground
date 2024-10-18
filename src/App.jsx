@@ -6,10 +6,10 @@ import "@/styles/normalize.scss";
 import "@/App.scss";
 
 const App = () => (
-  <BrowserRouter>
-    <Navbar />
-    <AppRoutes /> {/* Colocar as rotas aqui */}
-  </BrowserRouter>
+    <BrowserRouter>
+      <Navbar />
+      <AppRoutes /> {/* Colocar as rotas aqui */}
+    </BrowserRouter>
 );
 
 export default App;

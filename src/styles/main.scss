@@ -1,5 +1,5 @@
-@import "./colors";
-@import "./containers";
-@import "./fonts";
-@import "./mixins";
-@import "./sizes";
+@forward "./colors";
+@forward "./containers";
+@forward "./fonts";
+@forward "./mixins";
+@forward "./sizes";
