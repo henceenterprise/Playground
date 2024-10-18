@@ -2,7 +2,7 @@
 import "./DesignKit.scss";
 
 // Components
-import Container from "../../../components/Container";
+import Container from "@/components/Container";
 
 function DesignKit() {
   return (

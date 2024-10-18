@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import "./ContainerConfig.scss";
 
 // Components
-import Container from "../../components/Container";
+import Container from "@/components/Container";
 
 function ContainerConfig() {
   const initialSize = { width: "100%", height: "auto" };

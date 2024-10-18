@@ -1,10 +1,10 @@
-import iconReact from "../../assets/icons/ic__react.svg";
+import iconReact from "@/assets/icons/ic__react.svg";
 
 // CSS
 import "./LandingPage.scss";
 
 // Components
-import Container from "../../components/Container";
+import Container from "@/components/Container";
 
 function LandingPage() {
   return (

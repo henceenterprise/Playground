@@ -2,7 +2,7 @@
 import "./ContentDesign.scss";
 
 // Components
-import Container from "../../../components/Container";
+import Container from "@/components/Container";
 
 function ContentDesign() {
   return (

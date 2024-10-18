@@ -2,7 +2,7 @@
 import "./ComponentLibrary.scss";
 
 // Components
-import Container from "../../../components/Container";
+import Container from "@/components/Container";
 
 function ComponentLibrary() {
   return (

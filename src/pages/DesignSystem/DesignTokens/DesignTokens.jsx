@@ -2,7 +2,7 @@
 import "./DesignTokens.scss";
 
 // Components
-import Container from "../../../components/Container";
+import Container from "@/components/Container";
 
 function DesignTokens() {
   return (

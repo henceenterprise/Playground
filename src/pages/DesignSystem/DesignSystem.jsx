@@ -1,10 +1,10 @@
-import design_system_concept from "../../assets/img/design_system_concept.png";
+import design_system_concept from "@/assets/img/design_system_concept.png";
 
 // CSS
 import "./DesignSystem.scss";
 
 // Components
-import Container from "../../components/Container";
+import Container from "@/components/Container";
 
 function DesignSystem() {
   return (
