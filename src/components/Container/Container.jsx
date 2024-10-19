@@ -1,9 +1,9 @@
 import "./Container.scss";
 
-function Container({ children, center = false }) {
+function Container({ children }) {
   return (
     <div className={`container`}>
-      <div className={`container__content ${center ? "container__content--center" : ""}`}>{children}</div>
+      <div className={`container__content`}>{children}</div>
     </div>
   );
 }
