@@ -1,34 +1,19 @@
 @use "@/styles/main" as *;
 
 .button {
-  position: relative;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  flex-direction: row;
   gap: 8px;
-  width: fit-content;
-  height: auto;
-  padding: 8px 12px 8px 16px;
+  padding: 8px 12px;
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.25s ease;
-  // style
   background-color: $lightblue-95;
   border: 2px solid $lightblue-85;
-  box-shadow: 0 0px 8px -4px rgba($black, 0.1);
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
 
   &__icon {
     width: 24px;
     height: 24px;
-    display: block;
-    position: relative;
-    aspect-ratio: 1/1;
-    margin: 0;
-    padding: 0;
-    transform-origin: center;
-    transition: all 0.5s ease;
-
     svg {
       fill: $gray-25;
     }
@@ -36,17 +21,16 @@
 
   &__text {
     font-size: 16px;
-    font-weight: 500;
     color: $lightblue-react;
-    white-space: nowrap;
   }
 
-  &--no-text {
-    padding: 8px;
-  }
-
-  &:hover, &--active {
+  &:hover,
+  &--active {
     background-color: $lightblue-90;
-    box-shadow: 0 0px 8px -4px rgba($black, 0.3);
+    box-shadow: 0 0 8px rgba($black, 0.1);
+  }
+
+  &--no-icon &__text {
+    padding-left: 8px;
   }
 }
