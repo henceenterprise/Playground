@@ -1,0 +1,217 @@
+@use "@/styles/variables" as *;
+
+.nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: calc(240px + 16px);
+  flex: 0 0 calc(240px + 16px);
+  z-index: 9;
+  height: 100vh;
+  padding-right: 16px;
+
+  .container {
+    height: 100%;
+    background-color: $white;
+    box-shadow: 4px 0px 8px -4px rgba(0, 0, 0, 0.1);
+    overflow-x: hidden;
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      padding: 44px 16px;
+    }
+  }
+
+  &__button--minimize {
+    position: absolute;
+    right: 0;
+    top: 44px;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    z-index: 1;
+
+    .button {
+      &__icon {
+        width: 16px;
+        height: 16px;
+        transform: rotate(-90deg);
+        transition: transform 0.3s ease-in-out;
+        transform-origin: center;
+
+        svg {
+          width: 100%;
+        }
+      }
+    }
+
+    &.button--active {
+      .button__icon {
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    position: relative;
+    height: 32px;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 700;
+    color: $gray-10;
+    transition: color 0.25s ease;
+    white-space: nowrap;
+    
+
+    &:hover {
+      color: $lightblue-react;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+
+    &-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      height: 40px;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: -4px;
+        left: -16px;
+        width: calc(100% + (16px * 2));
+        height: calc(100% + (4px * 2));
+        opacity: 0;
+        transition: opacity 0.25s ease;
+        background-color: $lightblue-90;
+      }
+
+      &__icon {
+        width: 24px;
+        height: 24px;
+        flex: 0 0 24px;
+        position: relative;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          object-position: center;
+        }
+      }
+
+      &__link {
+        font-size: 14px;
+        color: $gray-10;
+        width: calc(100% + (24px + 12px));
+        padding-left: calc(24px + 12px);
+        margin-left: calc(-24px - 12px);
+        height: 100%;
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+        position: relative;
+        
+      }
+
+      &:nth-child(1) {
+        height: 24px;
+        &::before {
+          display: none;
+        }
+        .nav__list-item__link {
+          font-size: 10px;
+          font-weight: 500;
+        }
+      }
+
+      &:hover {
+        &::before {
+          opacity: 1;
+        }
+      }
+
+      &--active {
+        &:nth-child(1) .nav__list-item__link,
+        .nav__list-item__link {
+          pointer-events: none;
+        }
+
+        &:nth-child(1) .nav__list-item__link {
+          font-weight: 700;
+        }
+
+        .nav__list-item__link {
+          font-weight: 600;
+        }
+
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &--closed {
+    width: calc(80px + 16px);
+    flex: 0 0 calc(80px + 16px);
+
+    .nav {
+      &__list {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 24px;
+
+        &-item {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          height: 40px;
+
+          &__icon {
+            width: calc(80px - (16px * 2));
+            height: 24px;
+            flex: 0 0 calc(80px - (16px * 2));
+          }
+
+          &__link {
+            opacity: 0;
+            width: calc(100% + (24px + (80px - (16px * 2))));
+            padding-left: calc(24px + (80px - (16px * 2)));
+            margin-left: calc(-24px - (80px - (16px * 2)));
+          }
+
+          &:nth-child(1) {
+            height: 24px;
+            .nav__list-item__link {
+              opacity: 1;
+              width: calc(80px - (16px * 2));
+              padding: 0;
+              margin: 0;
+              white-space: wrap;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}
