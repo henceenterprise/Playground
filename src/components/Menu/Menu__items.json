@@ -1,0 +1,46 @@
+[
+  [
+    {
+      "label": "Design System",
+      "routePath": "/design-system",
+      "elementPath": "/src/pages/DesignSystem"
+    },
+    {
+      "label": "Design Tokens",
+      "routePath": "/design-tokens",
+      "elementPath": "/src/pages/DesignSystem/DesignTokens"
+    },
+    {
+      "label": "Component Library",
+      "routePath": "/component-library",
+      "elementPath": "/src/pages/DesignSystem/ComponentLibrary"
+    },
+    {
+      "label": "Design Kit",
+      "routePath": "/design-kit",
+      "elementPath": "/src/pages/DesignSystem/DesignKit"
+    },
+    {
+      "label": "Content Design",
+      "routePath": "/content-design",
+      "elementPath": "/src/pages/DesignSystem/ContentDesign"
+    }
+  ],
+  [
+    {
+      "label": "Mini Games",
+      "routePath": "/design-system",
+      "elementPath": "/design-system"
+    },
+    {
+      "label": "Unidades de Medida",
+      "routePath": "/design-system",
+      "elementPath": "/design-system"
+    },
+    {
+      "label": "Container Config",
+      "routePath": "/design-system",
+      "elementPath": "/design-system"
+    }
+  ]
+]
