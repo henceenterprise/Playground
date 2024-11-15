@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 16px;
 
     &__column {
         display: flex;
@@ -10,6 +11,7 @@
 
         &--left {
             justify-content: flex-start;
+            gap: 16px;
         }
 
         &--center {
