@@ -1,0 +1,47 @@
+// Montserrat font
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('@/assets/fonts/montserrat/Montserrat-VariableFont.woff2') format('woff2'), 
+         url('@/assets/fonts/montserrat/Montserrat-VariableFont.woff') format('woff'), 
+         url('@/assets/fonts/montserrat/Montserrat-VariableFont.ttf') format('truetype');
+    font-weight: 100 900; 
+    font-style: normal; 
+}
+
+@font-face {
+    font-family: 'Montserrat--italic';
+    src: url('@/assets/fonts/montserrat/Montserrat-Italic-VariableFont.woff2') format('woff2'), 
+         url('@/assets/fonts/montserrat/Montserrat-Italic-VariableFont.woff') format('woff'), 
+         url('@/assets/fonts/montserrat/Montserrat-Italic-VariableFont.ttf') format('truetype'); 
+    font-weight: 100 900; 
+    font-style: italic; 
+}
+
+$font-montserrat: 'Montserrat', sans-serif;
+$font-montserrat--italic: 'Montserrat--italic', sans-serif;
+
+
+
+// Open Sans font
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url('@/assets/fonts/open_sans/OpenSans-VariableFont.woff2') format('woff2'), 
+         url('@/assets/fonts/open_sans/OpenSans-VariableFont.woff') format('woff'), 
+         url('@/assets/fonts/open_sans/OpenSans-VariableFont.ttf') format('truetype');
+    font-weight: 100 900; 
+    font-style: normal; 
+}
+
+@font-face {
+    font-family: 'OpenSans--italic';
+    src: url('@/assets/fonts/open_sans/OpenSans-Italic-VariableFont.woff2') format('woff2'), 
+         url('@/assets/fonts/open_sans/OpenSans-Italic-VariableFont.woff') format('woff'), 
+         url('@/assets/fonts/open_sans/OpenSans-Italic-VariableFont.ttf') format('truetype'); 
+    font-weight: 100 900; 
+    font-style: italic; 
+}
+
+$font-opensans: 'OpenSans', sans-serif;
+$font-opensans--italic: 'OpenSans--italic', sans-serif;

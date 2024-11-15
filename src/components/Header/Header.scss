@@ -1,0 +1,23 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__column {
+        display: flex;
+        align-items: center;
+        width: 100%;
+
+        &--left {
+            justify-content: flex-start;
+        }
+
+        &--center {
+            justify-content: center;
+        }
+
+        &--right {
+            justify-content: flex-end;
+        }
+    }
+}
