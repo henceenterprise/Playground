@@ -1,8 +1,12 @@
+@use "@/assets/styles/variables" as *;
+
 .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 16px;
+    background: $white;
+    box-shadow: 0 4px 12px 0 rgba($neutral-50, 0.05);
 
     &__column {
         display: flex;
@@ -20,6 +24,19 @@
 
         &--right {
             justify-content: flex-end;
+        }
+    }
+
+    &__link {
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 1;
+        color: $neutral-05;
+        text-decoration: none;
+        transition: color 0.25s ease-in-out;
+
+        &:hover {
+            color: $neutral-15;
         }
     }
 }

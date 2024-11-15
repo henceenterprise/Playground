@@ -1,10 +1,12 @@
+// @ts-check
+
 import React, { useState } from "react";
 import "./Button.scss";
 
 type ButtonProps = {
   label?: string;
   onClick?: () => void;
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "user";
   size?: "small" | "medium" | "large";
   active?: boolean;
   icon?: React.ReactNode;

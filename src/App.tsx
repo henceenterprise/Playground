@@ -1,32 +1,14 @@
 import "./App.scss";
+import { Header, Menu } from "./components";
+import AppRoutes from "./routes.tsx";
 
-import { Button, Header, Menu, Container } from "./components";
-
-const App = () => {
+const App: React.FC = () => {
   return (
     <>
       <Header />
       <main className="main">
         <Menu />
-        <Container>
-          <Button
-            label="Salvar"
-            onClick={() => alert("Salvando...")}
-            variant="secondary"
-            size="large"
-            icon={
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="24px"
-                viewBox="0 -960 960 960"
-                width="24px"
-                fill="#ffffff"
-              >
-                <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
-              </svg>
-            }
-          />
-        </Container>
+        <AppRoutes />
       </main>
     </>
   );

@@ -2,19 +2,30 @@
 
 .btn {
   padding: $size8;
+  border-radius: $size4;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: transparent;
   gap: $size8;
   transition: background 0.25s ease-in-out;
 
   &--primary {
-    border-radius: $size4;
+    background: transparent;
+
+    &:hover {
+      background: $neutral-95;
+    }
   }
 
   &--secondary {
-    border-radius: $size12;
+  }
+
+  &--user {
+    background: $lightblue-react;
+
+    &:hover {
+      background: $lightblue-75;
+    }
   }
 
   &--small {
@@ -37,7 +48,14 @@
 
   &__icon {
     width: 20px;
-    
+    height: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     svg {
       width: 100%;
       height: auto;
@@ -49,9 +67,5 @@
     font-size: 14px;
     font-weight: 400;
     color: $neutral-05;
-  }
-
-  &:hover {
-    background: $neutral-95;
   }
 }

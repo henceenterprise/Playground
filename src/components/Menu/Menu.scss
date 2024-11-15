@@ -1,0 +1,41 @@
+@use "@/assets/styles/variables" as *;
+
+.menu {
+  width: 240px;
+  background: $white;
+  box-shadow: 4px 0 12px 0 rgba($neutral-50, 0.05);
+  transition: width 0.25s ease-in-out;
+  overflow-x: hidden;
+
+  &--close {
+    width: 0px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item {
+    &:hover {
+    }
+  }
+
+  &__link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &__icon {
+
+    }
+
+    &__label {
+      white-space: nowrap;
+    }
+
+    &:first-child {
+      background-color: red;
+    }
+  }
+}

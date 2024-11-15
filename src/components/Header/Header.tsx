@@ -1,13 +1,25 @@
+// @ts-check
+
 import React from "react";
+import { Link } from "react-router-dom";
+
+import $ from "jquery";
 
 import { Button } from "../../components";
+
+import ic_menu from "@/assets/media/svg/ic__menu.svg";
 
 import "./Header.scss";
 
 const Header: React.FC = () => {
   function toggleMenu() {
-    const menu = document.getElementById("menu");
-    menu?.classList.toggle("menu--open");
+    const menu = $(".menu");
+    menu.toggleClass("menu--close");
+  }
+
+  function toggleModal(modal: string) {
+    const modalElement = $(modal);
+    modalElement.toggleClass("modal--open");
   }
 
   return (
@@ -18,22 +30,22 @@ const Header: React.FC = () => {
           onClick={() => toggleMenu()}
           variant="primary"
           size="medium"
-          icon={
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="20px"
-              viewBox="0 -960 960 960"
-              width="20px"
-              fill="0D0D0D"
-            >
-              <path d="M144-264v-72h672v72H144Zm0-180v-72h672v72H144Zm0-180v-72h672v72H144Z" />
-            </svg>
-          }
+          icon={<img src={ic_menu} alt="" />}
         />
-        link Homepage
+        <Link className="header__link" to="/">
+          Homepage
+        </Link>
       </div>
       <div className="header__column header__column--center">Search Bar</div>
-      <div className="header__column header__column--right">User Button</div>
+      <div className="header__column header__column--right">
+        <Button
+          label=""
+          onClick={() => toggleModal(".modal--user")}
+          variant="user"
+          size="medium"
+          icon={"A"}
+        />
+      </div>
     </header>
   );
 };
