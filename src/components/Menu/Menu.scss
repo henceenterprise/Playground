@@ -74,11 +74,16 @@
       .menu__link__label {
         font-size: 14px;
         font-weight: 600;
-      } 
+      }
     }
 
-    &:hover, &--active {
+    &:hover,
+    &--active {
       background: $neutral-95;
+    }
+
+    &--active {
+      pointer-events: none;
     }
   }
 }

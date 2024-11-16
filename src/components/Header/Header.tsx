@@ -13,8 +13,8 @@ import "./Header.scss";
 
 const Header: React.FC = () => {
   function toggleMenu() {
-    const menu = $(".menu");
-    menu.toggleClass("menu--close");
+    const menuElement = $(".menu");
+    menuElement.toggleClass("menu--close");
   }
 
   function toggleModal(modal: string) {

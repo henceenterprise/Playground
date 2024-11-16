@@ -24,6 +24,8 @@ ol {
 a {
   text-decoration: none;
   color: inherit;
+  -webkit-user-drag: none;
+          user-drag: none;
   cursor: pointer;
 }
 
@@ -46,6 +48,8 @@ canvas,
 svg {
   display: block;
   max-width: 100%;
+  -webkit-user-drag: none;
+          user-drag: none;
 }
 
 table {
