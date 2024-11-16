@@ -6,6 +6,7 @@
   box-shadow: 4px 0 12px 0 rgba($neutral-50, 0.05);
   transition: width 0.25s ease-in-out;
   overflow-x: hidden;
+  padding-block: 40px;
 
   &--close {
     width: 0px;
@@ -14,6 +15,27 @@
   &__list {
     display: flex;
     flex-direction: column;
+    margin-inline: 12px;
+    padding-block: 16px;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -12px;
+      top: 0;
+      width: calc(100% + (12px * 2));
+      height: 1px;
+      background: $neutral-95;
+    }
+
+    &:first-child {
+      padding-top: 0;
+
+      &::before {
+        display: none;
+      }
+    }
   }
 
   &__item {
@@ -25,17 +47,38 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    gap: 12px;
+    background: transparent;
+    border-radius: $size4;
+    transition: background 0.25s ease-in-out;
+    padding: 12px 12px 12px 42px;
 
     &__icon {
-
+      width: 16px;
+      flex: 0 0 16px;
     }
 
     &__label {
       white-space: nowrap;
+      font-size: 12px;
+      font-weight: 500;
+      text-overflow: ellipsis;
+      width: 100%;
+      display: block;
+      overflow: hidden;
     }
 
     &:first-child {
-      background-color: red;
+      padding: 12px 12px 12px 14px;
+
+      .menu__link__label {
+        font-size: 14px;
+        font-weight: 600;
+      } 
+    }
+
+    &:hover, &--active {
+      background: $neutral-95;
     }
   }
 }

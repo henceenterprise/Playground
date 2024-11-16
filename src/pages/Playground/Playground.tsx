@@ -2,12 +2,18 @@
 
 import React from "react";
 
+import { Container } from "../../components";
+
 import "./Playground.scss";
 
 const Playground: React.FC = () => {
   return (
     <>
-      <div>Playground</div>
+      <section className="playground">
+        <Container>
+          Playground
+        </Container>
+      </section>
     </>
   );
 };

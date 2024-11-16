@@ -2,11 +2,11 @@
 
 .btn {
   padding: $size8;
-  border-radius: $size4;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: $size8;
+  border-radius: $size4;
   transition: background 0.25s ease-in-out;
 
   &--primary {

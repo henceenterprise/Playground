@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 import $ from "jquery";
 
-import { Button } from "../../components";
+import { Button, Search } from "../../components";
 
 import ic_menu from "@/assets/media/svg/ic__menu.svg";
 
@@ -36,7 +36,9 @@ const Header: React.FC = () => {
           Homepage
         </Link>
       </div>
-      <div className="header__column header__column--center">Search Bar</div>
+      <div className="header__column header__column--center">
+        <Search />
+      </div>
       <div className="header__column header__column--right">
         <Button
           label=""
