@@ -1,11 +1,9 @@
-// @ts-check
-
-import React, { useState } from "react";
+import React from "react";
 import "./Button.scss";
 
 type ButtonProps = {
   label?: string;
-  onClick?: () => void;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>; // Altere o tipo aqui
   variant?: "primary" | "secondary" | "user";
   size?: "small" | "medium" | "large";
   active?: boolean;
@@ -18,18 +16,14 @@ const Button: React.FC<ButtonProps> = ({
   variant = "primary",
   size = "medium",
   icon,
-  active = false,
 }) => {
-  const [isActive, setIsActive] = useState(active);
-
-  const handleClick = () => {
-    setIsActive((prev) => !prev); // Alterna o estado active
-    if (onClick) onClick(); // Executa a função onClick se fornecida
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (onClick) onClick(e); // Passa o evento para a função onClick
   };
 
   return (
     <button
-      className={`btn btn--${variant} btn--${size} ${isActive ? "btn--active" : ""}`}
+      className={`btn btn--${variant} btn--${size}`}
       onClick={handleClick}
     >
       {icon && <span className="btn__icon">{icon}</span>}

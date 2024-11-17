@@ -1,0 +1,43 @@
+@use "@/assets/styles/variables" as *;
+
+.modal {
+  position: absolute;
+  width: 100%;
+  background: $white;
+  padding: 24px 12px;
+  box-shadow: 4px 4px 12px 0 rgba($neutral-50, 0.05);
+  border-radius: 16px;
+  opacity: 0; // Inicialmente escondida
+  pointer-events: none;
+  transform: translateY(-10px); // Adiciona um pequeno deslocamento
+  transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
+
+  &--primary {
+  }
+
+  &--secondary {
+  }
+
+  &--user {
+    top: calc(100% + 16px);
+    right: 16px;
+  }
+
+  &--small {
+    max-width: 240px;
+  }
+
+  &--medium {
+    max-width: 500px;
+  }
+
+  &--large {
+    max-width: 700px;
+  }
+
+  &--open {
+    opacity: 1; // Visível quando aberta
+    pointer-events: inherit;
+    transform: translateY(0); // Remove o deslocamento
+  }
+}
