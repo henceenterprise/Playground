@@ -1,5 +1,3 @@
-// @ts-check
-
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
@@ -9,11 +7,15 @@ import ic_minigames from "@/assets/media/svg/ic__joystick.svg";
 
 import "./Menu.scss";
 
-const Menu: React.FC = () => {
+interface MenuProps {
+  isClosed: boolean;
+}
+
+const Menu: React.FC<MenuProps> = ({ isClosed }) => {
   const location = useLocation();
 
   return (
-    <nav className="menu">
+    <nav className={`menu ${isClosed ? "menu--closed" : ""}`}>
       <ul className="menu__list">
         <li className="menu__item">
           <Link

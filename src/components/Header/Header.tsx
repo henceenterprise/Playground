@@ -1,50 +1,57 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import $ from "jquery";
 import { Button, Search, Modal } from "../../components";
 import ic_menu from "@/assets/media/svg/ic__menu.svg";
 import "./Header.scss";
 
-const Header: React.FC = () => {
-  const [isUserModalOpen, setIsUserModalOpen] = useState(false);
-  const modalRef = useRef<HTMLDivElement>(null); // Referência da modal para verificar o clique fora dela
+interface HeaderProps {
+  onToggleMenu: () => void;
+}
 
-  const toggleMenu = () => {
-    const menu = $(".menu");
-    menu?.toggleClass("menu--closed");
+const Header: React.FC<HeaderProps> = ({ onToggleMenu }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const modalRef = useRef<HTMLDivElement | null>(null);
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
+
+  const toggleModal = (event: React.MouseEvent) => {
+    event.stopPropagation();
+    setIsModalOpen((prev) => !prev);
+
+    if (buttonRef.current) {
+      buttonRef.current.classList.toggle("btn--active", !isModalOpen);
+    }
   };
 
-  // Função para abrir ou fechar a modal
-  const openUserModal = () => setIsUserModalOpen((prevState) => !prevState);
-
-  // Função que fecha a modal se o clique for fora da área da modal
   const handleOutsideClick = (event: MouseEvent) => {
-    if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
-      setIsUserModalOpen(false); // Fecha a modal se o clique for fora
+    if (
+      modalRef.current &&
+      !modalRef.current.contains(event.target as Node) &&
+      buttonRef.current &&
+      !buttonRef.current.contains(event.target as Node)
+    ) {
+      setIsModalOpen(false);
+      buttonRef.current?.classList.remove("btn--active");
     }
   };
 
   useEffect(() => {
-    if (isUserModalOpen) {
-      // Adiciona o evento de clique fora da modal
+    if (isModalOpen) {
       document.addEventListener("mousedown", handleOutsideClick);
     } else {
-      // Remove o evento se a modal estiver fechada
       document.removeEventListener("mousedown", handleOutsideClick);
     }
 
-    // Limpeza do efeito ao desmontar o componente
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
     };
-  }, [isUserModalOpen]);
+  }, [isModalOpen]);
 
   return (
     <header className="header">
       <div className="header__column header__column--left">
         <Button
           label=""
-          onClick={toggleMenu} // Toggling menu
+          onClick={onToggleMenu}
           variant="primary"
           size="medium"
           icon={<img src={ic_menu} alt="" />}
@@ -58,22 +65,25 @@ const Header: React.FC = () => {
       </div>
       <div className="header__column header__column--right">
         <Button
+          ref={buttonRef}
           label=""
-          onClick={openUserModal} // Toggling a modal
+          onClick={toggleModal}
           variant="user"
           size="medium"
           icon={"A"}
         />
-        {isUserModalOpen && (
+        {isModalOpen && (
           <Modal
-            ref={modalRef} // Referência da modal para detecção de clique fora
+            ref={modalRef}
             variant="user"
             size="small"
-            isOpen={isUserModalOpen}
-            onClose={openUserModal} // Botão de fechar com toggle
+            onClose={() => {
+              setIsModalOpen(false);
+              buttonRef.current?.classList.remove("btn--active");
+            }}
           >
             <div className="modal__content">
-              <p>Modal de usuario</p>
+              <p>Modal de usuário</p>
             </div>
           </Modal>
         )}
