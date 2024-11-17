@@ -9,7 +9,7 @@ type ModalProps = {
 };
 
 const Modal = forwardRef<HTMLDivElement, ModalProps>(
-  ({ variant = "primary", size = "medium", children, onClose }, ref) => {
+  ({ variant = "primary", size = "medium", children }, ref) => {
     return (
       <div
         className={`modal modal--${variant} modal--${size} modal--open`}
