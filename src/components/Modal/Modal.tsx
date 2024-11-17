@@ -16,9 +16,6 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
         ref={ref}
       >
         <div className="modal__content">
-          <button type="button" onClick={onClose}>
-            Fechar
-          </button>
           {children}
         </div>
       </div>

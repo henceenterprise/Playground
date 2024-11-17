@@ -6,9 +6,9 @@
     justify-content: space-between;
     padding: 16px;
     background: $white;
-    box-shadow: 0 4px 12px 0 rgba($neutral-50, 0.05);
     position: relative;
     z-index: 1;
+    @include header-shadow;
 
     &__column {
         display: flex;

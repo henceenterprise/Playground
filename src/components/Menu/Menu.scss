@@ -3,10 +3,10 @@
 .menu {
   width: 240px;
   background: $white;
-  box-shadow: 4px 0 12px 0 rgba($neutral-50, 0.05);
   transition: width 0.25s ease-in-out;
   overflow-x: hidden;
   padding-block: 40px;
+  @include menu-shadow;
 
   &--closed {
     width: 0px;

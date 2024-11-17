@@ -1,0 +1,44 @@
+@use "@/assets/styles/variables" as *;
+
+.user-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: $size16;
+    margin-inline: $size12;
+    padding-block: $size16;
+
+    &:first-child {
+        padding-top: 0;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 8px;
+        width: calc(100% - ($size36 + $size16));
+    }
+
+    &__name {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 1;
+        color: $neutral-05;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__email {
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 1;
+        color: $neutral-50;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}

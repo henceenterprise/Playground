@@ -10,3 +10,6 @@ export { default as Menu } from './Menu';
 
 // dynamic components
 export { default as NavigationList } from './Lists/NavigationList';
+
+// static components
+export { default as UserInformation } from './Auth/UserInformation';

@@ -1,7 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Button, Search, Modal, NavigationList } from "../../components";
+import {
+  Button,
+  Search,
+  Modal,
+  NavigationList,
+  UserInformation,
+} from "../../components";
 import ic_menu from "@/assets/media/svg/ic__menu.svg";
+import ic_logout from "@/assets/media/svg/ic__logout.svg";
+import ic_settings from "@/assets/media/svg/ic__settings.svg";
 import "./Header.scss";
 
 interface HeaderProps {
@@ -16,14 +24,16 @@ const Header: React.FC<HeaderProps> = ({ onToggleMenu }) => {
   const ListItems = [
     [
       {
-        label: "Settings",
-        to: "/settings",
+        label: "Log Out",
+        to: "/log-out",
+        icon: ic_logout,
       },
     ],
     [
       {
-        label: "Log Out",
-        to: "/log-out",
+        label: "Settings",
+        to: "/settings",
+        icon: ic_settings,
       },
     ],
   ];
@@ -98,6 +108,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleMenu }) => {
             }}
           >
             <div className="modal__content">
+              <UserInformation />
               <NavigationList items={ListItems} />
             </div>
           </Modal>

@@ -1,0 +1,17 @@
+@use "./colors" as *;
+
+
+
+// Shadows
+
+@mixin menu-shadow {
+    box-shadow: 2px 0 12px 0 rgba($neutral-05, 0.05);
+}
+
+@mixin header-shadow {
+    box-shadow: 0 2px 12px 0 rgba($neutral-05, 0.05);
+}
+
+@mixin modal-shadow {
+    box-shadow: 2px 2px 12px 0 rgba($neutral-05, 0.05);
+}
