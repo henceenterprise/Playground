@@ -1,5 +1,6 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+
+import { NavigationList } from "../../components";
 
 import ic_playground from "@/assets/media/svg/ic__design_services.svg";
 import ic_designsystem from "@/assets/media/svg/ic__draw_abstract.svg";
@@ -12,125 +13,62 @@ interface MenuProps {
 }
 
 const Menu: React.FC<MenuProps> = ({ isClosed }) => {
-  const location = useLocation();
+
+  const ListItems = [
+    [
+      {
+        label: "Playground",
+        to: "/playground",
+        icon: ic_playground,
+      },
+    ],
+    [
+      {
+        label: "Design System",
+        to: "/design-system",
+        icon: ic_designsystem,
+      },
+      {
+        label: "Design Tokens",
+        to: "/design-system/design-tokens",
+      },
+      {
+        label: "Component Library",
+        to: "/design-system/component-library",
+      },
+      {
+        label: "Design Kit",
+        to: "/design-system/design-kit",
+      },
+      {
+        label: "Content Design",
+        to: "/design-system/content-design",
+      },
+    ],
+    [
+      {
+        label: "Mini-games",
+        to: "/mini-games",
+        icon: ic_minigames,
+      },
+      {
+        label: "Dino",
+        to: "/mini-games/dino",
+      },
+      {
+        label: "Tetris",
+        to: "/mini-games/tetris",
+      },
+      {
+        label: "2048",
+        to: "/mini-games/2048",
+      },
+    ],
+  ];
 
   return (
     <nav className={`menu ${isClosed ? "menu--closed" : ""}`}>
-      <ul className="menu__list">
-        <li className="menu__item">
-          <Link
-            className={`menu__link ${
-              location.pathname === "/playground" ? "menu__link--active" : ""
-            }`}
-            to="/playground"
-          >
-            <span className="menu__link__icon">
-              <img src={ic_playground} alt="" />
-            </span>
-            <span className="menu__link__label">Playground</span>
-          </Link>
-        </li>
-      </ul>
-      <ul className="menu__list">
-        <li className="menu__item">
-          <Link
-            className={`menu__link ${
-              location.pathname === "/design-system" ? "menu__link--active" : ""
-            }`}
-            to="/design-system"
-          >
-            <span className="menu__link__icon">
-              <img src={ic_designsystem} alt="" />
-            </span>
-            <span className="menu__link__label">Design System</span>
-          </Link>
-          <Link
-            className={`menu__link ${
-              location.pathname === "/design-system/design-tokens"
-                ? "menu__link--active"
-                : ""
-            }`}
-            to="/design-system/design-tokens"
-          >
-            <span className="menu__link__label">Design Tokens</span>
-          </Link>
-          <Link
-            className={`menu__link ${
-              location.pathname === "/design-system/component-library"
-                ? "menu__link--active"
-                : ""
-            }`}
-            to="/design-system/component-library"
-          >
-            <span className="menu__link__label">Component Library</span>
-          </Link>
-          <Link
-            className={`menu__link ${
-              location.pathname === "/design-system/design-kit"
-                ? "menu__link--active"
-                : ""
-            }`}
-            to="/design-system/design-kit"
-          >
-            <span className="menu__link__label">Design Kit</span>
-          </Link>
-          <Link
-            className={`menu__link ${
-              location.pathname === "/design-system/content-design"
-                ? "menu__link--active"
-                : ""
-            }`}
-            to="/design-system/content-design"
-          >
-            <span className="menu__link__label">Content Design</span>
-          </Link>
-        </li>
-      </ul>
-      <ul className="menu__list">
-        <li className="menu__item">
-          <Link
-            className={`menu__link ${
-              location.pathname === "/mini-games" ? "menu__link--active" : ""
-            }`}
-            to="/mini-games"
-          >
-            <span className="menu__link__icon">
-              <img src={ic_minigames} alt="" />
-            </span>
-            <span className="menu__link__label">Mini Games</span>
-          </Link>
-          <Link
-            className={`menu__link ${
-              location.pathname === "/mini-games/dino"
-                ? "menu__link--active"
-                : ""
-            }`}
-            to="/mini-games/dino"
-          >
-            <span className="menu__link__label">Dino</span>
-          </Link>
-          <Link
-            className={`menu__link ${
-              location.pathname === "/mini-games/tetris"
-                ? "menu__link--active"
-                : ""
-            }`}
-            to="/mini-games/tetris"
-          >
-            <span className="menu__link__label">Tetris</span>
-          </Link>
-          <Link
-            className={`menu__link ${
-              location.pathname === "/mini-games/2048"
-                ? "menu__link--active"
-                : ""
-            }`}
-            to="/mini-games/2048"
-          >
-            <span className="menu__link__label">2048</span>
-          </Link>
-        </li>
-      </ul>
+      <NavigationList items={ListItems} />
     </nav>
   );
 };

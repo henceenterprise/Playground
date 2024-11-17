@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Button, Search, Modal } from "../../components";
+import { Button, Search, Modal, NavigationList } from "../../components";
 import ic_menu from "@/assets/media/svg/ic__menu.svg";
 import "./Header.scss";
 
@@ -12,6 +12,21 @@ const Header: React.FC<HeaderProps> = ({ onToggleMenu }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const modalRef = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
+
+  const ListItems = [
+    [
+      {
+        label: "Settings",
+        to: "/settings",
+      },
+    ],
+    [
+      {
+        label: "Log Out",
+        to: "/log-out",
+      },
+    ],
+  ];
 
   const toggleModal = (event: React.MouseEvent) => {
     event.stopPropagation();
@@ -83,7 +98,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleMenu }) => {
             }}
           >
             <div className="modal__content">
-              <p>Modal de usuário</p>
+              <NavigationList items={ListItems} />
             </div>
           </Modal>
         )}
