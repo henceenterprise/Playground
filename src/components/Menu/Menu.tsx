@@ -63,7 +63,7 @@ const Menu: React.FC<MenuProps> = ({ isClosed }) => {
         label: "2048",
         to: "/mini-games/2048",
       },
-    ],
+    ]
   ];
 
   return (

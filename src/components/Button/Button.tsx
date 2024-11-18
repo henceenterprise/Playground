@@ -11,6 +11,7 @@ type ButtonProps = {
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ label, onClick, variant = "primary", size = "medium", icon }, ref) => {
+    
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
       if (onClick) onClick(e);
     };
