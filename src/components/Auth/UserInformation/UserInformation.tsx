@@ -5,7 +5,7 @@ import { Button } from "../../../components";
 const UserInformation: React.FC = () => {
   return (
     <div className="user-info">
-      <Button label="" variant="user" size="medium" icon={"A"} />
+      <Button label="" variant="user" size="medium" icon={"A"}/>
       <div className="user-info__content">
         <span className="user-info__name">Admin</span>
         <span className="user-info__email">Admin@example.com</span>

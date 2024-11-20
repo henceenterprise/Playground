@@ -1,44 +1,58 @@
 @use "@/assets/styles/variables" as *;
 
 .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background: $white;
+  position: relative;
+  z-index: 1;
+  @include header-shadow;
+
+  &__column {
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 16px;
-    background: $white;
-    position: relative;
-    z-index: 1;
-    @include header-shadow;
+    width: 100%;
 
-    &__column {
-        display: flex;
-        align-items: center;
-        width: 100%;
-
-        &--left {
-            justify-content: flex-start;
-            gap: 16px;
-        }
-
-        &--center {
-            justify-content: center;
-        }
-
-        &--right {
-            justify-content: flex-end;
-        }
+    &--left {
+      justify-content: flex-start;
+      gap: 16px;
+      max-width: calc(240px - 16px);
     }
 
-    &__link {
-        font-size: 20px;
-        font-weight: 600;
-        line-height: 1;
-        color: $neutral-05;
-        text-decoration: none;
-        transition: color 0.25s ease-in-out;
-
-        &:hover {
-            color: $neutral-15;
-        }
+    &--center {
+      justify-content: center;
     }
+
+    &--right {
+      justify-content: flex-end;
+      max-width: calc(240px - 16px);
+    }
+  }
+
+  &__link {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1;
+    color: $neutral-05;
+    text-decoration: none;
+    transition: color 0.25s ease-in-out;
+
+    &:hover {
+      color: $neutral-15;
+    }
+  }
+}
+
+#modal-user {
+  top: calc(36px + 16px + 16px) ;
+  right: 0;
+}
+
+#modal-search {
+  top: calc(36px + 16px + 16px);
+  left: 50%;
+  transform: translateX(-50%);
 }

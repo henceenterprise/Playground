@@ -1,0 +1,43 @@
+@use "@/assets/styles/variables" as *;
+
+.search {
+    border: 1px solid $neutral-90;
+    border-radius: $size36;
+    display: flex;
+    flex-direction: row;
+    padding-inline: $size4;
+    height: $size36;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    @include max-width-medium;
+    gap: $size4;
+
+    &__icon {
+        &-container {
+            padding: $size4;
+            flex: 0 0 auto;
+        }
+
+        fill: $neutral-85;
+    }
+
+    &__input {
+        font-size: 14px;
+        line-height: 1;
+        width: 100%;
+
+        cursor: text;
+
+        &::placeholder {
+            color: $neutral-50;
+            font-size: $size12;
+            line-height: 1;
+            font-weight: 500;
+        }
+    }
+
+    &__clear {
+        fill: $neutral-50;
+    }
+}

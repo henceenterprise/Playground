@@ -6,26 +6,20 @@
   align-items: center;
   justify-content: center;
   gap: $size8;
-  border-radius: $size4;
   transition: background 0.25s ease-in-out;
 
   &--primary {
+    border-radius: $size4;
     background: transparent;
-
-    &:hover {
-      background: $neutral-95;
-    }
   }
 
   &--secondary {
+    border-radius: $size36;
+    background: transparent;
   }
 
   &--user {
     background: $lightblue-react;
-
-    &:hover {
-      background: $lightblue-75;
-    }
   }
 
   &--small {
@@ -56,10 +50,10 @@
     align-items: center;
     justify-content: center;
 
-    svg {
+    svg,
+    img {
       width: 100%;
       height: auto;
-      fill: $neutral-05;
     }
   }
 
@@ -67,5 +61,25 @@
     font-size: 14px;
     font-weight: 400;
     color: $neutral-05;
+  }
+
+  &-hover {
+    &--primary {
+      &:hover {
+        background: $neutral-95;
+      }
+    }
+
+    &--secondary {
+      &:hover {
+        background: $neutral-95;
+      }
+    }
+
+    &--user {
+      &:hover {
+        background: $lightblue-75;
+      }
+    }
   }
 }

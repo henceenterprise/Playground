@@ -18,21 +18,16 @@
   &--secondary {
   }
 
-  &--user {
-    top: calc(100% + 16px);
-    right: 16px;
-  }
-
   &--small {
-    max-width: 240px;
+    @include max-width-small;
   }
 
   &--medium {
-    max-width: 500px;
+    @include max-width-medium;
   }
 
   &--large {
-    max-width: 700px;
+    @include max-width-large;
   }
 
   &--open {

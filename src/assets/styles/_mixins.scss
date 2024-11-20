@@ -1,5 +1,18 @@
 @use "./colors" as *;
 
+// Max Widths
+
+@mixin max-width-small {    
+    max-width: 240px;
+}
+
+@mixin max-width-medium {    
+    max-width: 500px;
+}
+
+@mixin max-width-large {    
+    max-width: 700px;
+}
 
 
 // Shadows

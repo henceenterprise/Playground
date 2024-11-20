@@ -80,6 +80,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleMenu }) => {
           variant="primary"
           size="medium"
           icon={<img src={ic_menu} alt="" />}
+          hover="primary"
         />
         <Link className="header__link" to="/">
           Homepage
@@ -96,10 +97,12 @@ const Header: React.FC<HeaderProps> = ({ onToggleMenu }) => {
           variant="user"
           size="medium"
           icon={"A"}
+          hover="user"
         />
         {isModalOpen && (
           <Modal
             ref={modalRef}
+            id="modal-user"
             variant="user"
             size="small"
             onClose={() => {
