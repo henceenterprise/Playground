@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px;
+  padding: $size12 $size16;
   background: $white;
   position: relative;
   z-index: 1;
@@ -18,8 +18,8 @@
 
     &--left {
       justify-content: flex-start;
-      gap: 16px;
-      max-width: calc(240px - 16px);
+      gap: $size16;
+      max-width: calc(240px - $size16);
     }
 
     &--center {
@@ -28,7 +28,7 @@
 
     &--right {
       justify-content: flex-end;
-      max-width: calc(240px - 16px);
+      max-width: calc(240px - $size16);
     }
   }
 
@@ -47,12 +47,12 @@
 }
 
 #modal-user {
-  top: calc(36px + 16px + 16px) ;
+  top: calc($size36 + $size16 + $size16) ;
   right: 0;
 }
 
 #modal-search {
-  top: calc(36px + 16px + 16px);
+  top: calc($size36 + $size16 + $size16);
   left: 50%;
   transform: translateX(-50%);
 }

@@ -2,11 +2,11 @@
 
 .search {
     border: 1px solid $neutral-90;
-    border-radius: $size36;
+    border-radius: $size40;
     display: flex;
     flex-direction: row;
-    padding-inline: $size4;
-    height: $size36;
+    padding-inline: $size8;
+    height: $size40;
     align-items: center;
     justify-content: flex-start;
     width: 100%;
@@ -26,7 +26,6 @@
         font-size: 14px;
         line-height: 1;
         width: 100%;
-
         cursor: text;
 
         &::placeholder {

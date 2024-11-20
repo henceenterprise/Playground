@@ -1,0 +1,67 @@
+{
+  "menu": [
+    [
+      {
+        "label": "Playground",
+        "to": "/playground",
+        "icon": "ic_playground"
+      }
+    ],
+    [
+      {
+        "label": "Design System",
+        "to": "/design-system",
+        "icon": "ic_designsystem"
+      },
+      {
+        "label": "Design Tokens",
+        "to": "/design-system/design-tokens"
+      },
+      {
+        "label": "Component Library",
+        "to": "/design-system/component-library"
+      },
+      {
+        "label": "Design Kit",
+        "to": "/design-system/design-kit"
+      },
+      {
+        "label": "Content Design",
+        "to": "/design-system/content-design"
+      }
+    ],
+    [
+      {
+        "label": "Mini-games",
+        "to": "/mini-games",
+        "icon": "ic_minigames"
+      },
+      {
+        "label": "Dino",
+        "to": "/mini-games/dino"
+      },
+      {
+        "label": "Tetris",
+        "to": "/mini-games/tetris"
+      },
+      {
+        "label": "2048",
+        "to": "/mini-games/2048"
+      }
+    ]
+  ],
+  "modal_user": [
+    [
+      {
+        "label": "Log Out",
+        "to": "/log-out"
+      }
+    ],
+    [
+      {
+        "label": "Settings",
+        "to": "/settings"
+      }
+    ]
+  ]
+}

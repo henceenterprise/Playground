@@ -1,6 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
 
-import { Modal, Button } from "../../components";
+import { Modal, Button, NavigationList } from "../../components";
+
+import ic_playground from "@/assets/media/svg/ic__design_services.svg";
+import ic_designsystem from "@/assets/media/svg/ic__draw_abstract.svg";
+import ic_minigames from "@/assets/media/svg/ic__joystick.svg";
+import ic_logout from "@/assets/media/svg/ic__logout.svg";
+import ic_settings from "@/assets/media/svg/ic__settings.svg";
+
+import menuData from "../../data/NavigationList.json";
 
 import "./Search.scss";
 
@@ -11,6 +19,29 @@ const Search: React.FC = () => {
   const searchRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
+  const iconMap: Record<string, string> = {
+    ic_playground,
+    ic_designsystem,
+    ic_minigames,
+    ic_logout,
+    ic_settings,
+  };
+
+  const allItems = [...menuData.menu, ...menuData.modal_user].map((group: any[]) =>
+    group.map((item) => ({
+      ...item,
+      icon: item.icon ? iconMap[item.icon] : undefined,
+    }))
+  );
+
+  const filteredItems = allItems
+    .map((group) =>
+      group.filter((item) =>
+        item.label.toLowerCase().includes(inputValue.toLowerCase())
+      )
+    )
+    .filter((group) => group.length > 0); 
+
   const handleFocus = () => {
     setModalOpen(true);
   };
@@ -20,7 +51,7 @@ const Search: React.FC = () => {
   };
 
   const clearInput = (event: React.MouseEvent) => {
-    event.stopPropagation(); // Previne que o clique no botão feche a modal
+    event.stopPropagation(); 
     setInputValue("");
     inputRef.current?.focus();
   };
@@ -97,7 +128,11 @@ const Search: React.FC = () => {
       </div>
       {isModalOpen && (
         <Modal ref={modalRef} id="modal-search" variant="primary" size="medium">
-          Modal
+          {filteredItems.length > 0 ? (
+            <NavigationList variant="secondary" items={filteredItems} />
+          ) : (
+            <p>No results found</p>
+          )}
         </Modal>
       )}
     </>

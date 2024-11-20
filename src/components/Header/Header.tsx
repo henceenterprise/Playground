@@ -10,6 +10,9 @@ import {
 import ic_menu from "@/assets/media/svg/ic__menu.svg";
 import ic_logout from "@/assets/media/svg/ic__logout.svg";
 import ic_settings from "@/assets/media/svg/ic__settings.svg";
+
+import menuData from "../../data/NavigationList.json";
+
 import "./Header.scss";
 
 interface HeaderProps {
@@ -21,22 +24,18 @@ const Header: React.FC<HeaderProps> = ({ onToggleMenu }) => {
   const modalRef = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
-  const ListItems = [
-    [
-      {
-        label: "Log Out",
-        to: "/log-out",
-        icon: ic_logout,
-      },
-    ],
-    [
-      {
-        label: "Settings",
-        to: "/settings",
-        icon: ic_settings,
-      },
-    ],
-  ];
+  const iconMap: Record<string, string> = {
+    ic_menu,
+    ic_logout,
+    ic_settings,
+  };
+
+  const ListItems = menuData.modal_user.map((group: any[]) =>
+    group.map((item) => ({
+      ...item,
+      icon: item.icon ? iconMap[item.icon] : undefined,
+    }))
+  );
 
   const toggleModal = (event: React.MouseEvent) => {
     event.stopPropagation();
@@ -112,7 +111,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleMenu }) => {
           >
             <div className="modal__content">
               <UserInformation />
-              <NavigationList items={ListItems} />
+              <NavigationList variant="primary" items={ListItems} />
             </div>
           </Modal>
         )}

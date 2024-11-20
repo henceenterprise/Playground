@@ -4,7 +4,7 @@ import "./Button.scss";
 type ButtonProps = {
   label?: string;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  variant?: "primary" | "secondary" | "user";
+  variant: "primary" | "secondary" | "user";
   size?: "small" | "medium" | "large";
   hover?: "primary" | "secondary" | "user";
   icon?: React.ReactNode;
