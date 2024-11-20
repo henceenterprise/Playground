@@ -14,12 +14,12 @@
     gap: $size4;
 
     &__icon {
+        fill: $neutral-85;
+
         &-container {
             padding: $size4;
             flex: 0 0 auto;
         }
-
-        fill: $neutral-85;
     }
 
     &__input {
