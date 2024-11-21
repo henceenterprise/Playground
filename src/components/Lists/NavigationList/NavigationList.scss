@@ -4,9 +4,9 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  margin-inline: $size12;
 
   &--primary {
-    margin-inline: $size12;
     padding-block: $size16;
 
     &::before {
@@ -82,17 +82,41 @@
     }
   }
 
-  &--secondary {
+  &--search-recent, &--search-list {
     .navigation-list {
       &__link {
         display: flex;
         flex-direction: row;
         align-items: center;
         gap: 12px;
-        padding: 12px 12px 12px 42px;
+        padding: 12px 12px 12px 48px;
         background: transparent;
         border-radius: $size4;
         transition: background 0.25s ease-in-out;
+
+        &::before {
+          content: "";
+          width: 20px;
+          height: 20px;
+          background: url("/src/assets/media/svg/ic__history.svg") no-repeat
+            center;
+          background-size: contain;
+          pointer-events: none;
+          position: absolute;
+          left: 16px;
+        }
+
+        .btn {
+          &:hover {
+            .navigation-list__remove {
+              fill: $red-50;
+            }
+          }
+        }
+
+        &:hover {
+          background: $neutral-95;
+        }
       }
 
       &__icon {
@@ -102,12 +126,29 @@
 
       &__label {
         white-space: nowrap;
-        font-size: 12px;
+        font-size: 14px;
         font-weight: 500;
         text-overflow: ellipsis;
         width: 100%;
         display: block;
         overflow: hidden;
+      }
+
+      &__remove {
+        fill: $neutral-45;
+        transition: fill 0.25s ease-in-out;
+      }
+    }
+  }
+
+  &--search-list {
+    .navigation-list {
+      &__link {
+        padding: 12px 12px 12px 16px;
+
+        &::before {
+          display: none;
+        }
       }
     }
   }

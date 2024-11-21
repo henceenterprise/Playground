@@ -2,12 +2,6 @@ import React, { useState, useRef, useEffect } from "react";
 
 import { Modal, Button, NavigationList } from "../../components";
 
-import ic_playground from "@/assets/media/svg/ic__design_services.svg";
-import ic_designsystem from "@/assets/media/svg/ic__draw_abstract.svg";
-import ic_minigames from "@/assets/media/svg/ic__joystick.svg";
-import ic_logout from "@/assets/media/svg/ic__logout.svg";
-import ic_settings from "@/assets/media/svg/ic__settings.svg";
-
 import menuData from "../../data/NavigationList.json";
 
 import "./Search.scss";
@@ -15,45 +9,86 @@ import "./Search.scss";
 const Search: React.FC = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [inputValue, setInputValue] = useState(""); // Estado para o valor do input
+  const [recentsItems, setRecentsItems] = useState<any[][]>([
+    [
+      { label: "Recent Item 1", to: "/recent1" },
+      { label: "Recent Item 2", to: "/recent2" },
+    ],
+  ]); // Exemplo de itens recentes
+
   const modalRef = useRef<HTMLDivElement | null>(null);
   const searchRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
-  const iconMap: Record<string, string> = {
-    ic_playground,
-    ic_designsystem,
-    ic_minigames,
-    ic_logout,
-    ic_settings,
-  };
-
-  const allItems = [...menuData.menu, ...menuData.modal_user].map((group: any[]) =>
-    group.map((item) => ({
-      ...item,
-      icon: item.icon ? iconMap[item.icon] : undefined,
-    }))
-  );
+  const allItems = [...menuData.menu, ...menuData.modal_user];
 
   const filteredItems = allItems
-    .map((group) =>
-      group.filter((item) =>
-        item.label.toLowerCase().includes(inputValue.toLowerCase())
-      )
+    .map((group: any[]) =>
+      group
+        .filter((item) =>
+          item.label.toLowerCase().includes(inputValue.toLowerCase())
+        )
+        .sort((a, b) => {
+          const aIncludes = a.label
+            .toLowerCase()
+            .startsWith(inputValue.toLowerCase());
+          const bIncludes = b.label
+            .toLowerCase()
+            .startsWith(inputValue.toLowerCase());
+
+          if (aIncludes && !bIncludes) return -1; // Itens que começam com o termo primeiro
+          if (!aIncludes && bIncludes) return 1;
+          return a.label.localeCompare(b.label); // Ordenação alfabética caso contrário
+        })
     )
-    .filter((group) => group.length > 0); 
+    .filter((group) => group.length > 0);
+
+  const hasFilteredResults = filteredItems.length > 0;
 
   const handleFocus = () => {
-    setModalOpen(true);
+    if (inputValue || recentsItems.some((group) => group.length > 0)) {
+      setModalOpen(true);
+    }
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(event.target.value);
+    const value = event.target.value;
+    setInputValue(value);
+
+    if (value === "" && !recentsItems.some((group) => group.length > 0)) {
+      setModalOpen(false);
+    } else if (!isModalOpen) {
+      setModalOpen(true);
+    }
+  };
+
+  const removeFromRecents = (itemToRemove: any) => {
+    setRecentsItems((prev) => {
+      const updatedRecents = prev.map((group) =>
+        group.filter((item) => item.label !== itemToRemove.label)
+      );
+
+      const hasRemainingItems = updatedRecents.some(
+        (group) => group.length > 0
+      );
+      if (!hasRemainingItems && !inputValue) {
+        setModalOpen(false);
+      }
+
+      return updatedRecents;
+    });
   };
 
   const clearInput = (event: React.MouseEvent) => {
-    event.stopPropagation(); 
+    event.stopPropagation();
     setInputValue("");
-    inputRef.current?.focus();
+
+    if (!recentsItems.some((group) => group.length > 0)) {
+      setModalOpen(false);
+      inputRef.current?.focus();
+    } else {
+      inputRef.current?.focus();
+    }
   };
 
   const handleClickOutside = (event: MouseEvent) => {
@@ -67,6 +102,10 @@ const Search: React.FC = () => {
     ) {
       setModalOpen(false);
     }
+  };
+
+  const handleLinkClick = () => {
+    setModalOpen(false);
   };
 
   useEffect(() => {
@@ -128,10 +167,18 @@ const Search: React.FC = () => {
       </div>
       {isModalOpen && (
         <Modal ref={modalRef} id="modal-search" variant="primary" size="medium">
-          {filteredItems.length > 0 ? (
-            <NavigationList variant="secondary" items={filteredItems} />
+          {inputValue && hasFilteredResults ? (
+            <NavigationList
+              variant="search-list"
+              items={filteredItems}
+              onClick={handleLinkClick}
+            />
           ) : (
-            <p>No results found</p>
+            <NavigationList
+              variant="search-recent"
+              items={recentsItems}
+              onClick={(item) => removeFromRecents(item)}
+            />
           )}
         </Modal>
       )}

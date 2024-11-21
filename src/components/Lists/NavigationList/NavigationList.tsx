@@ -11,11 +11,17 @@ interface NavigationItem {
 
 interface NavigationListProps {
   items: NavigationItem[][];
-  variant: "primary" | "secondary";
+  variant: "primary" | "secondary" | "search-list" | "search-recent";
+  onClick?: (item: NavigationItem) => void;
 }
 
-const NavigationList: React.FC<NavigationListProps> = ({ items, variant }) => {
+const NavigationList: React.FC<NavigationListProps> = ({ items, variant, onClick }) => {
   const location = useLocation();
+
+  const handleClick = (event: React.MouseEvent, item: NavigationItem) => {
+    event.preventDefault(); // Previne a navegação do link caso necessário
+    if (onClick) onClick(item);
+  };
 
   return (
     <>
@@ -40,11 +46,11 @@ const NavigationList: React.FC<NavigationListProps> = ({ items, variant }) => {
                   </span>
                 )}
                 <span className="navigation-list__label">{item.label}</span>
-                {variant === "secondary" && (
+                {variant === "search-recent" && (
                   <Button
                     variant="secondary"
                     size="small"
-                    hover="secondary"
+                    onClick={(e) => handleClick(e, item)} // Passa o item para o handleClick
                     icon={
                       <svg
                         className="navigation-list__remove"
