@@ -82,7 +82,8 @@
     }
   }
 
-  &--search-recent, &--search-list {
+  &--search-recent,
+  &--search-list {
     .navigation-list {
       &__link {
         display: flex;
@@ -107,10 +108,12 @@
         }
 
         .btn {
+          &__icon {
+            fill: $neutral-50;
+          }
+
           &:hover {
-            .navigation-list__remove {
-              fill: $red-50;
-            }
+            background: $neutral-90;
           }
         }
 
@@ -135,8 +138,6 @@
       }
 
       &__remove {
-        fill: $neutral-45;
-        transition: fill 0.25s ease-in-out;
       }
     }
   }

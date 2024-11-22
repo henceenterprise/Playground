@@ -15,7 +15,11 @@ interface NavigationListProps {
   onClick?: (item: NavigationItem) => void;
 }
 
-const NavigationList: React.FC<NavigationListProps> = ({ items, variant, onClick }) => {
+const NavigationList: React.FC<NavigationListProps> = ({
+  items,
+  variant,
+  onClick,
+}) => {
   const location = useLocation();
 
   const handleClick = (event: React.MouseEvent, item: NavigationItem) => {
