@@ -1,4 +1,5 @@
-@use "@/assets/styles/variables" as *;
+@use "@/styles/variables" as *;
+@use "@/components/Button/Button.module.scss";
 
 .navigation-list {
   display: flex;
@@ -107,18 +108,16 @@
           left: 16px;
         }
 
-        .btn {
-          &__icon {
-            fill: $neutral-50;
-          }
-
-          &:hover {
-            background: $neutral-90;
-          }
-        }
-
         &:hover {
           background: $neutral-95;
+        }
+      }
+
+      &__button-remove {
+        fill: $neutral-50;
+
+        &:hover {
+          background: $neutral-90;
         }
       }
 

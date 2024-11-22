@@ -8,7 +8,7 @@ import ic_minigames from "@/assets/media/svg/ic__joystick.svg";
 
 import menuData from "../../data/NavigationList.json";
 
-import "./Menu.scss";
+import styles from "./Menu.module.scss";
 
 interface MenuProps {
   isClosed: boolean;
@@ -29,7 +29,9 @@ const Menu: React.FC<MenuProps> = ({ isClosed }) => {
   );
 
   return (
-    <nav className={`menu ${isClosed ? "menu--closed" : ""}`}>
+    <nav
+      className={`${styles.menu} ${isClosed ? styles["menu--closed"] : ""}`}
+    >
       <NavigationList variant="primary" items={ListItems} />
     </nav>
   );

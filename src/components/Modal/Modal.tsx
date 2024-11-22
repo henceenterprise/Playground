@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import "./Modal.scss";
+import styles from "./Modal.module.scss";
 
 type ModalProps = {
   id?: string;
@@ -13,11 +13,11 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
   ({ variant = "primary", size = "medium", children, id }, ref) => {
     return (
       <div
-        className={`modal modal--${variant} modal--${size} modal--open`}
+        className={`${styles.modal} ${styles[`modal--${variant}`]} ${styles[`modal--${size}`]} ${styles["modal--open"]}`}
         id={id}
         ref={ref}
       >
-        <div className="modal__content">{children}</div>
+        <div className={styles["modal__content"]}>{children}</div>
       </div>
     );
   }

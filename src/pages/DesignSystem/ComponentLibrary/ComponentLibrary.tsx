@@ -2,14 +2,14 @@
 
 import React from "react";
 
-import "./ComponentLibrary.scss";
+import styles from "./ComponentLibrary.module.scss";
 
 import { Container } from "../../../components";
 
 const ComponentLibrary: React.FC = () => {
   return (
     <>
-      <section className="componentLibrary">
+      <section className={styles.componentLibrary}>
         <Container>Component Library</Container>
       </section>
     </>

@@ -1,39 +1,49 @@
 import { Routes, Route } from "react-router-dom";
+import React, { Suspense } from "react";
 
-// Pages
-import LandingPage from "./pages/LandingPage";
+// Componente de fallback ao carregar páginas
+const Loading = () => <div>Loading...</div>;
 
-import Playground from "./pages/Playground";
+// Lazy loading para as páginas principais
+const LandingPage = React.lazy(() => import("./pages/LandingPage"));
+const Playground = React.lazy(() => import("./pages/Playground"));
 
-import DesignSystem from "./pages/DesignSystem";
-import DesignTokens from "./pages/DesignSystem/DesignTokens";
-import DesignKit from "./pages/DesignSystem/DesignKit";
-import ContentDesign from "./pages/DesignSystem/ContentDesign";
-import ComponentLibrary from "./pages/DesignSystem/ComponentLibrary";
+// Lazy loading para seções do Design System
+const DesignSystem = React.lazy(() => import("./pages/DesignSystem"));
+const DesignTokens = React.lazy(() => import("./pages/DesignSystem/DesignTokens"));
+const DesignKit = React.lazy(() => import("./pages/DesignSystem/DesignKit"));
+const ContentDesign = React.lazy(() => import("./pages/DesignSystem/ContentDesign"));
+const ComponentLibrary = React.lazy(() => import("./pages/DesignSystem/ComponentLibrary"));
 
-import MiniGames from "./pages/MiniGames";
-import MiniGames__Dino from "./pages/MiniGames/Dino";
-import MiniGames__Tetris from "./pages/MiniGames/Tetris";
-import MiniGames__2048 from "./pages/MiniGames/2048";
+// Lazy loading para MiniGames
+const MiniGames = React.lazy(() => import("./pages/MiniGames"));
+const MiniGames__Dino = React.lazy(() => import("./pages/MiniGames/Dino"));
+const MiniGames__Tetris = React.lazy(() => import("./pages/MiniGames/Tetris"));
+const MiniGames__2048 = React.lazy(() => import("./pages/MiniGames/2048"));
 
-// Define the component type explicitly
 const AppRoutes: React.FC = () => (
-  <Routes>
-    <Route path="/" element={<LandingPage />} />
+  <Suspense fallback={<Loading />}>
+    <Routes>
+      {/* Página inicial */}
+      <Route path="/" element={<LandingPage />} />
 
-    <Route path="/playground" element={<Playground />} />
+      {/* Playground */}
+      <Route path="/playground" element={<Playground />} />
 
-    <Route path="/design-system" element={<DesignSystem />} />
-    <Route path="/design-system/design-tokens" element={<DesignTokens />} />
-    <Route path="/design-system/design-kit" element={<DesignKit />} />
-    <Route path="/design-system/content-design" element={<ContentDesign />} />
-    <Route path="/design-system/component-library" element={<ComponentLibrary />} />
+      {/* Design System */}
+      <Route path="/design-system" element={<DesignSystem />} />
+      <Route path="/design-system/design-tokens" element={<DesignTokens />} />
+      <Route path="/design-system/design-kit" element={<DesignKit />} />
+      <Route path="/design-system/content-design" element={<ContentDesign />} />
+      <Route path="/design-system/component-library" element={<ComponentLibrary />} />
 
-    <Route path="/mini-games" element={<MiniGames />} />
-    <Route path="/mini-games/dino" element={<MiniGames__Dino />} />
-    <Route path="/mini-games/tetris" element={<MiniGames__Tetris />} />
-    <Route path="/mini-games/2048" element={<MiniGames__2048 />} />
-  </Routes>
+      {/* MiniGames */}
+      <Route path="/mini-games" element={<MiniGames />} />
+      <Route path="/mini-games/dino" element={<MiniGames__Dino />} />
+      <Route path="/mini-games/tetris" element={<MiniGames__Tetris />} />
+      <Route path="/mini-games/2048" element={<MiniGames__2048 />} />
+    </Routes>
+  </Suspense>
 );
 
 export default AppRoutes;

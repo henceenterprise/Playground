@@ -2,14 +2,14 @@
 
 import React from "react";
 
-import "./Dino.scss";
+import styles from "./Dino.module.scss";
 
 import { Container } from "../../../components";
 
 const MiniGame__Dino: React.FC = () => {
   return (
     <>
-      <section className="dino">
+      <section className={styles.dino}>
         <Container>Mini-Game Dino</Container>
       </section>
     </>

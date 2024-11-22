@@ -2,14 +2,14 @@
 
 import React from "react";
 
-import "./DesignKit.scss";
+import styles from "./DesignKit.module.scss";
 
 import { Container } from "../../../components";
 
 const DesignKit: React.FC = () => {
   return (
     <>
-      <section className="designKit">
+      <section className={styles.designKit}>
         <Container>Design Kit</Container>
       </section>
     </>

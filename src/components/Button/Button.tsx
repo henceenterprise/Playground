@@ -1,10 +1,11 @@
 import React, { forwardRef } from "react";
-import "./Button.scss";
+import styles from "./Button.module.scss";
 
 type ButtonProps = {
   label?: string;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  variant: "primary" | "secondary" | "user";
+  variant?: "primary" | "secondary" | "user";
+  className?: string;
   size?: "small" | "medium" | "large";
   hover?: "primary" | "secondary" | "user";
   icon?: React.ReactNode;
@@ -12,7 +13,15 @@ type ButtonProps = {
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    { label, onClick, variant = "primary", size = "medium", hover, icon },
+    {
+      label,
+      onClick,
+      variant = "primary",
+      size = "medium",
+      hover,
+      icon,
+      className,
+    },
     ref
   ) => {
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -22,13 +31,15 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <button
         ref={ref}
-        className={`btn btn--${variant} btn--${size} ${
-          hover ? `btn-hover--${hover}` : ""
+        className={`${styles.btn} ${styles[`btn--${variant}`]} ${
+          styles[`btn--${size}`]
+        } ${hover ? styles[`btn-hover--${hover}`] : ""} ${
+          className ? className : ""
         }`}
         onClick={handleClick}
       >
-        {icon && <span className="btn__icon">{icon}</span>}
-        {label && <span className="btn__label">{label}</span>}
+        {icon && <span className={styles["btn__icon"]}>{icon}</span>}
+        {label && <span className={styles["btn__label"]}>{label}</span>}
       </button>
     );
   }

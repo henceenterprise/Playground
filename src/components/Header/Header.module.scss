@@ -1,4 +1,4 @@
-@use "@/assets/styles/variables" as *;
+@use "@/styles/variables" as *;
 
 .header {
   display: flex;
@@ -49,10 +49,4 @@
 #modal-user {
   top: calc($size36 + $size16 + $size16) ;
   right: 0;
-}
-
-#modal-search {
-  top: calc($size36 + $size16 + $size16);
-  left: 50%;
-  transform: translateX(-50%);
 }

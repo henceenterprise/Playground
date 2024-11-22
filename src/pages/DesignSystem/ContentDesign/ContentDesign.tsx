@@ -2,14 +2,14 @@
 
 import React from "react";
 
-import "./ContentDesign.scss";
+import styles from "./ContentDesign.module.scss";
 
 import { Container } from "../../../components";
 
 const ContentDesign: React.FC = () => {
   return (
     <>
-      <section className="contentDesign">
+      <section className={styles.contentDesign}>
         <Container>Content Design</Container>
       </section>
     </>

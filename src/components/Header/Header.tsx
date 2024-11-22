@@ -13,7 +13,7 @@ import ic_settings from "@/assets/media/svg/ic__settings.svg";
 
 import menuData from "../../data/NavigationList.json";
 
-import "./Header.scss";
+import styles from "./Header.module.scss";
 
 interface HeaderProps {
   onToggleMenu: () => void;
@@ -71,8 +71,8 @@ const Header: React.FC<HeaderProps> = ({ onToggleMenu }) => {
   }, [isModalOpen]);
 
   return (
-    <header className="header">
-      <div className="header__column header__column--left">
+    <header className={styles.header}>
+      <div className={styles["header__column"] + " " + styles["header__column--left"]}>
         <Button
           label=""
           onClick={onToggleMenu}
@@ -81,14 +81,17 @@ const Header: React.FC<HeaderProps> = ({ onToggleMenu }) => {
           icon={<img src={ic_menu} alt="" />}
           hover="primary"
         />
-        <Link className="header__link" to="/">
+        <Link
+          className={styles["header__link"]}
+          to="/"
+        >
           Homepage
         </Link>
       </div>
-      <div className="header__column header__column--center">
+      <div className={styles["header__column"] + " " + styles["header__column--center"]}>
         <Search />
       </div>
-      <div className="header__column header__column--right">
+      <div className={styles["header__column"] + " " + styles["header__column--right"]}>
         <Button
           ref={buttonRef}
           label=""
@@ -101,7 +104,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleMenu }) => {
         {isModalOpen && (
           <Modal
             ref={modalRef}
-            id="modal-user"
+            id={styles["modal-user"]}
             variant="user"
             size="small"
             onClose={() => {
@@ -109,10 +112,8 @@ const Header: React.FC<HeaderProps> = ({ onToggleMenu }) => {
               buttonRef.current?.classList.remove("btn--active");
             }}
           >
-            <div className="modal__content">
               <UserInformation />
               <NavigationList variant="primary" items={ListItems} />
-            </div>
           </Modal>
         )}
       </div>

@@ -2,14 +2,14 @@
 
 import React from "react";
 
-import "./2048.scss";
+import styles from "./2048.module.scss";
 
 import { Container } from "../../../components";
 
 const MiniGame__2048: React.FC = () => {
   return (
     <>
-      <section className="2048">
+      <section className={styles["2048"]}>
         <Container>Mini-Game 2048</Container>
       </section>
     </>

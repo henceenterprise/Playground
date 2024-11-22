@@ -4,7 +4,7 @@ import { Modal, Button, NavigationList } from "../../components";
 
 import menuData from "../../data/NavigationList.json";
 
-import "./Search.scss";
+import styles from "./Search.module.scss";
 
 const Search: React.FC = () => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -118,26 +118,26 @@ const Search: React.FC = () => {
   return (
     <>
       <div
-        className="search"
+        className={styles.search}
         ref={searchRef}
         onFocus={handleFocus}
         onClick={handleFocus} // Garante que o clique na div abre o modal
         tabIndex={0} // Permite que a div seja focada via teclado ou clique
       >
-        <div className="search__icon-container">
+        <div className={styles.search__icon_container}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="20px"
             viewBox="0 -960 960 960"
             width="20px"
             fill="0D0D0D"
-            className="search__icon"
+            className={styles.search__icon}
           >
             <path d="M765-144 526-383q-30 22-65.79 34.5-35.79 12.5-76.18 12.5Q284-336 214-406t-70-170q0-100 70-170t170-70q100 0 170 70t70 170.03q0 40.39-12.5 76.18Q599-464 577-434l239 239-51 51ZM384-408q70 0 119-49t49-119q0-70-49-119t-119-49q-70 0-119 49t-49 119q0 70 49 119t119 49Z" />
           </svg>
         </div>
         <input
-          className="search__input"
+          className={styles.search__input}
           ref={inputRef}
           type="text"
           placeholder="Quick search..."
@@ -151,7 +151,7 @@ const Search: React.FC = () => {
             hover="secondary"
             icon={
               <svg
-                className="search__clear"
+                className={styles["search__clear"]}
                 xmlns="http://www.w3.org/2000/svg"
                 height="20px"
                 viewBox="0 -960 960 960"
@@ -166,7 +166,7 @@ const Search: React.FC = () => {
         )}
       </div>
       {isModalOpen && (
-        <Modal ref={modalRef} id="modal-search" variant="primary" size="medium">
+        <Modal ref={modalRef} id={styles["modal-search"]} variant="primary" size="medium">
           {inputValue && hasFilteredResults ? (
             <NavigationList
               variant="search-list"
