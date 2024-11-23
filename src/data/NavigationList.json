@@ -54,13 +54,15 @@
     [
       {
         "label": "Log Out",
-        "to": "/log-out"
+        "to": "/log-out",
+        "icon": "ic_logout"
       }
     ],
     [
       {
         "label": "Settings",
-        "to": "/settings"
+        "to": "/settings",
+        "icon": "ic_settings"
       }
     ]
   ]

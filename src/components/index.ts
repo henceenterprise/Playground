@@ -13,3 +13,4 @@ export { default as NavigationList } from './Lists/NavigationList';
 
 // static components
 export { default as UserInformation } from './Auth/UserInformation';
+export { default as Loading } from './Loading';

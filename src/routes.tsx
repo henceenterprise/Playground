@@ -1,8 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import React, { Suspense } from "react";
 
-// Componente de fallback ao carregar páginas
-const Loading = () => <div>Loading...</div>;
+import { Loading } from "./components";
 
 // Lazy loading para as páginas principais
 const LandingPage = React.lazy(() => import("./pages/LandingPage"));
@@ -10,10 +9,16 @@ const Playground = React.lazy(() => import("./pages/Playground"));
 
 // Lazy loading para seções do Design System
 const DesignSystem = React.lazy(() => import("./pages/DesignSystem"));
-const DesignTokens = React.lazy(() => import("./pages/DesignSystem/DesignTokens"));
+const DesignTokens = React.lazy(
+  () => import("./pages/DesignSystem/DesignTokens")
+);
 const DesignKit = React.lazy(() => import("./pages/DesignSystem/DesignKit"));
-const ContentDesign = React.lazy(() => import("./pages/DesignSystem/ContentDesign"));
-const ComponentLibrary = React.lazy(() => import("./pages/DesignSystem/ComponentLibrary"));
+const ContentDesign = React.lazy(
+  () => import("./pages/DesignSystem/ContentDesign")
+);
+const ComponentLibrary = React.lazy(
+  () => import("./pages/DesignSystem/ComponentLibrary")
+);
 
 // Lazy loading para MiniGames
 const MiniGames = React.lazy(() => import("./pages/MiniGames"));
@@ -35,7 +40,10 @@ const AppRoutes: React.FC = () => (
       <Route path="/design-system/design-tokens" element={<DesignTokens />} />
       <Route path="/design-system/design-kit" element={<DesignKit />} />
       <Route path="/design-system/content-design" element={<ContentDesign />} />
-      <Route path="/design-system/component-library" element={<ComponentLibrary />} />
+      <Route
+        path="/design-system/component-library"
+        element={<ComponentLibrary />}
+      />
 
       {/* MiniGames */}
       <Route path="/mini-games" element={<MiniGames />} />
