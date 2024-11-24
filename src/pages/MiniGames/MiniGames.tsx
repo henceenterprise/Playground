@@ -2,9 +2,10 @@
 
 import React from "react";
 
+import { Container } from "../../components";
+
 import styles from "./MiniGames.module.scss";
 
-import { Container } from "../../components";
 
 const MiniGames: React.FC = () => {
   return (

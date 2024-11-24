@@ -1,13 +1,13 @@
-import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import "./styles/normalize.scss"; // Normalize
+import { AppProviders } from "./AppProviders";
+import ErrorBoundary from "./utils/ErrorBoundary";
 import App from "./App";
+import "./styles/normalize.scss";
 
 createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <BrowserRouter>
+  <ErrorBoundary>
+    <AppProviders>
       <App />
-    </BrowserRouter>
-  </StrictMode>
+    </AppProviders>
+  </ErrorBoundary>
 );

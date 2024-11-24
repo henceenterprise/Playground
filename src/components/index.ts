@@ -13,4 +13,7 @@ export { default as NavigationList } from './Lists/NavigationList';
 
 // static components
 export { default as UserInformation } from './Auth/UserInformation';
+export { default as PrivateRoute } from './Auth/PrivateRoute';
+export { default as AuthForm } from './Auth/AuthForm';
+
 export { default as Loading } from './Loading';
