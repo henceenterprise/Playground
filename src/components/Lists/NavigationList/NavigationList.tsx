@@ -12,19 +12,29 @@ interface NavigationItem {
 interface NavigationListProps {
   items: NavigationItem[][];
   variant: "primary" | "secondary" | "search-list" | "search-recent";
-  onClick?: (item: NavigationItem) => void;
+  onClickLink?: (item: NavigationItem) => void; // Para navegação
+  onClickButton?: (item: NavigationItem) => void; // Para botões de ação
 }
 
 const NavigationList: React.FC<NavigationListProps> = ({
   items,
   variant,
-  onClick,
+  onClickLink,
+  onClickButton,
 }) => {
   const location = useLocation();
 
-  const handleClick = (event: React.MouseEvent, item: NavigationItem) => {
-    event.preventDefault(); // Previne a navegação do link caso necessário
-    if (onClick) onClick(item);
+  const handleLinkClick = (event: React.MouseEvent, item: NavigationItem) => {
+    if (onClickLink) {
+      onClickLink(item); // Chama o callback para navegação
+    }
+  };
+
+  const handleButtonClick = (event: React.MouseEvent, item: NavigationItem) => {
+    event.preventDefault(); // Previne a navegação ao clicar no botão
+    if (onClickButton) {
+      onClickButton(item); // Chama o callback para ações como remover
+    }
   };
 
   return (
@@ -45,6 +55,7 @@ const NavigationList: React.FC<NavigationListProps> = ({
                     : ""
                 }`}
                 to={item.to}
+                onClick={(e) => handleLinkClick(e, item)} // Chama a lógica de navegação
               >
                 {variant === "primary" && item.icon && (
                   <span className={styles["navigation-list__icon"]}>
@@ -54,27 +65,28 @@ const NavigationList: React.FC<NavigationListProps> = ({
                 <span className={styles["navigation-list__label"]}>
                   {item.label}
                 </span>
-                {variant === "search-recent" && (
-                  <Button
-                    variant="secondary"
-                    size="small"
-                    className={styles["navigation-list__button-remove"]}
-                    onClick={(e) => handleClick(e, item)} // Passa o item para o handleClick
-                    icon={
-                      <svg
-                        className={styles["navigation-list__button-remove-icon"]}
-                        xmlns="http://www.w3.org/2000/svg"
-                        height="20px"
-                        viewBox="0 -960 960 960"
-                        width="20px"
-                        fill="0D0D0D"
-                      >
-                        <path d="m291-240-51-51 189-189-189-189 51-51 189 189 189-189 51 51-189 189 189 189-51 51-189-189-189 189Z" />
-                      </svg>
-                    }
-                  />
-                )}
               </Link>
+              {variant === "search-recent" && (
+                <Button
+                  variant="secondary"
+                  size="small"
+                  className={styles["navigation-list__button-remove"]}
+                  onClick={(e) => handleButtonClick(e, item)} // Chama a lógica de remoção
+                  hover="secondary"
+                  icon={
+                    <svg
+                      className={styles["navigation-list__button-remove-icon"]}
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="20px"
+                      viewBox="0 -960 960 960"
+                      width="20px"
+                      fill="0D0D0D"
+                    >
+                      <path d="m291-240-51-51 189-189-189-189 51-51 189 189 189-189 51 51-189 189 189 189-51 51-189-189-189 189Z" />
+                    </svg>
+                  }
+                />
+              )}
             </li>
           ))}
         </ul>

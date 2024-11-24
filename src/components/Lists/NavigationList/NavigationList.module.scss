@@ -86,6 +86,10 @@
   &--search-recent,
   &--search-list {
     .navigation-list {
+      &__item {
+        position: relative;
+      }
+
       &__link {
         display: flex;
         flex-direction: row;
@@ -114,11 +118,11 @@
       }
 
       &__button-remove {
+        position: absolute;
+        right: $size12;
+        top: 50%;
+        transform: translateY(-50%);
         fill: $neutral-50;
-
-        &:hover {
-          background: $neutral-90;
-        }
       }
 
       &__icon {

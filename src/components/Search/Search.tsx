@@ -9,12 +9,9 @@ import styles from "./Search.module.scss";
 const Search: React.FC = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [inputValue, setInputValue] = useState(""); // Estado para o valor do input
-  const [recentsItems, setRecentsItems] = useState<any[][]>([
-    [
-      { label: "Recent Item 1", to: "/recent1" },
-      { label: "Recent Item 2", to: "/recent2" },
-    ],
-  ]); // Exemplo de itens recentes
+  const [recentsItems, setRecentsItems] = useState<
+    { label: string; to: string }[][]
+  >([]);
 
   const modalRef = useRef<HTMLDivElement | null>(null);
   const searchRef = useRef<HTMLDivElement | null>(null);
@@ -55,14 +52,17 @@ const Search: React.FC = () => {
     const value = event.target.value;
     setInputValue(value);
 
-    if (value === "" && !recentsItems.some((group) => group.length > 0)) {
+    // Atualiza o estado da modal com base nos resultados filtrados e itens recentes
+    if (!value && !recentsItems.some((group) => group.length > 0)) {
       setModalOpen(false);
     } else if (!isModalOpen) {
-      setModalOpen(true);
+      setModalOpen(
+        hasFilteredResults || recentsItems.some((group) => group.length > 0)
+      );
     }
   };
 
-  const removeFromRecents = (itemToRemove: any) => {
+  const removeFromRecents = (itemToRemove: { label: string; to: string }) => {
     setRecentsItems((prev) => {
       const updatedRecents = prev.map((group) =>
         group.filter((item) => item.label !== itemToRemove.label)
@@ -77,6 +77,31 @@ const Search: React.FC = () => {
 
       return updatedRecents;
     });
+  };
+
+  const addToRecents = (item: { label: string; to: string }) => {
+    setRecentsItems((prev) => {
+      const flatRecents = prev.flat();
+
+      // Verificar duplicatas
+      const alreadyExists = flatRecents.some(
+        (recentItem) =>
+          recentItem.label === item.label && recentItem.to === item.to
+      );
+
+      if (alreadyExists) {
+        return prev;
+      }
+
+      // Adiciona no topo e mantém no máximo 10 itens
+      const updatedRecents = [[item, ...flatRecents.slice(0, 9)]];
+      return updatedRecents;
+    });
+  };
+
+  const handleLinkClick = (item: { label: string; to: string }) => {
+    addToRecents(item); // Adiciona o item clicado à lista de recentes
+    setModalOpen(false); // Fecha a modal
   };
 
   const clearInput = (event: React.MouseEvent) => {
@@ -102,10 +127,6 @@ const Search: React.FC = () => {
     ) {
       setModalOpen(false);
     }
-  };
-
-  const handleLinkClick = () => {
-    setModalOpen(false);
   };
 
   useEffect(() => {
@@ -166,18 +187,24 @@ const Search: React.FC = () => {
         )}
       </div>
       {isModalOpen && (
-        <Modal ref={modalRef} id={styles["modal-search"]} variant="primary" size="medium">
+        <Modal
+          ref={modalRef}
+          id={styles["modal-search"]}
+          variant="primary"
+          size="medium"
+        >
           {inputValue && hasFilteredResults ? (
             <NavigationList
               variant="search-list"
               items={filteredItems}
-              onClick={handleLinkClick}
+              onClickLink={handleLinkClick} // Para links da lista normal
             />
           ) : (
             <NavigationList
               variant="search-recent"
               items={recentsItems}
-              onClick={(item) => removeFromRecents(item)}
+              onClickLink={handleLinkClick} // Para navegação dos links recentes
+              onClickButton={removeFromRecents} // Para remover itens
             />
           )}
         </Modal>
