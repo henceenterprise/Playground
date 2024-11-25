@@ -5,21 +5,19 @@ import AppRoutes from "./routes";
 
 const App: React.FC = () => {
   const [isMenuClosed, setIsMenuClosed] = useState(false);
-  const [isMenuVisible, setIsMenuVisible] = useState(true); // Controla a visibilidade no DOM
+  const [isMenuVisible, setIsMenuVisible] = useState(true); 
 
   const toggleMenu = useCallback(() => {
     if (isMenuClosed) {
-      // Reabre o menu: Mostra no DOM imediatamente
       setIsMenuVisible(true);
       setTimeout(() => {
         setIsMenuClosed(false);
-      }, 0); // Sem atraso, inicia imediatamente a animação
+      }, 0); 
     } else {
-      // Fecha o menu: Aguarda a transição antes de remover do DOM
       setIsMenuClosed(true);
       setTimeout(() => {
-        setIsMenuVisible(false); // Remove do DOM após a transição
-      }, 250); // Correspondente à duração da transição
+        setIsMenuVisible(false);
+      }, 250);
     }
   }, [isMenuClosed]);
 
