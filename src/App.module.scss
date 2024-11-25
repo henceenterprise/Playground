@@ -1,16 +1,16 @@
 @use "@/styles/fonts" as *;
 
 body {
-    font-family: $font-montserrat;
+  font-family: $font-montserrat;
 }
 
 .main {
-    display: flex;
-    flex-direction: row;
-    height: calc(100vh - 68px);
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - 68px);
 
-    & > section {
-        flex: 1;
-        overflow: auto;
-    }
+  & > section {
+    flex: 1;
+    overflow: auto;
+  }
 }

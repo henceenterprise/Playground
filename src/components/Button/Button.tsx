@@ -37,6 +37,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           className ? className : ""
         }`}
         onClick={handleClick}
+        tabIndex={0}
       >
         {icon && <span className={styles["btn__icon"]}>{icon}</span>}
         {label && <span className={styles["btn__label"]}>{label}</span>}
