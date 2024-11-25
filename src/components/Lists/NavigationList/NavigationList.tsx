@@ -24,8 +24,7 @@ const NavigationList: React.FC<NavigationListProps> = ({
 }) => {
   const location = useLocation();
 
-  const handleLinkClick = (event: React.MouseEvent, item: NavigationItem) => {
-    event.preventDefault(); // Previne a navegação ao clicar no botão
+  const handleLinkClick = (_event: React.MouseEvent, item: NavigationItem) => {
     if (onClickLink) {
       onClickLink(item); // Chama o callback para navegação
     }
