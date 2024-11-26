@@ -2,7 +2,6 @@ import { Routes, Route } from "react-router-dom";
 import React, { Suspense } from "react";
 
 import { Loading } from "./components";
-import PrivateRoute from "./components/Auth/PrivateRoute";
 
 // Lazy loading das páginas
 const LandingPage = React.lazy(() => import("./pages/LandingPage"));
@@ -39,73 +38,55 @@ const AppRoutes: React.FC = () => (
       <Route
         path="/design-system"
         element={
-          <PrivateRoute>
             <DesignSystem />
-          </PrivateRoute>
         }
       />
       <Route
         path="/design-system/design-tokens"
         element={
-          <PrivateRoute>
             <DesignTokens />
-          </PrivateRoute>
         }
       />
       <Route
         path="/design-system/design-kit"
         element={
-          <PrivateRoute>
             <DesignKit />
-          </PrivateRoute>
         }
       />
       <Route
         path="/design-system/content-design"
         element={
-          <PrivateRoute>
             <ContentDesign />
-          </PrivateRoute>
         }
       />
       <Route
         path="/design-system/component-library"
         element={
-          <PrivateRoute>
             <ComponentLibrary />
-          </PrivateRoute>
         }
       />
       <Route
         path="/mini-games"
         element={
-          <PrivateRoute>
             <MiniGames />
-          </PrivateRoute>
         }
       />
       <Route
         path="/mini-games/dino"
         element={
-          <PrivateRoute>
             <MiniGames__Dino />
-          </PrivateRoute>
         }
       />
       <Route
         path="/mini-games/tetris"
         element={
-          <PrivateRoute>
             <MiniGames__Tetris />
-          </PrivateRoute>
         }
       />
       <Route
         path="/mini-games/2048"
         element={
-          <PrivateRoute>
             <MiniGames__2048 />
-          </PrivateRoute>
         }
       />
 

@@ -1,13 +1,10 @@
 import { createRoot } from "react-dom/client";
-import { AppProviders } from "./AppProviders";
-import ErrorBoundary from "./utils/ErrorBoundary";
 import App from "./App";
 import "./styles/normalize.scss";
+import { BrowserRouter } from "react-router-dom";
 
 createRoot(document.getElementById("root")!).render(
-  <ErrorBoundary>
-    <AppProviders>
-      <App />
-    </AppProviders>
-  </ErrorBoundary>
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
 );
