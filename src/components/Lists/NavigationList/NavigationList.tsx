@@ -37,6 +37,13 @@ const NavigationList: React.FC<NavigationListProps> = ({
     }
   };
 
+  // Verifique se o item é "Log Out" e execute a ação
+  const handleSpecialActions = (item: NavigationItem) => {
+    if (item.label === "Log Out") {
+      onClickButton?.(item);
+    }
+  };
+
   return (
     <>
       {items.map((group, groupIndex) => (
@@ -48,24 +55,30 @@ const NavigationList: React.FC<NavigationListProps> = ({
         >
           {group.map((item, index) => (
             <li className={styles["navigation-list__item"]} key={index}>
-              <Link
-                className={`${styles["navigation-list__link"]} ${
-                  location.pathname === item.to
-                    ? styles["navigation-list__link--active"]
-                    : ""
-                }`}
-                to={item.to}
-                onClick={(e) => handleLinkClick(e, item)} // Chama a lógica de navegação
-              >
-                {variant === "primary" && item.icon && (
-                  <span className={styles["navigation-list__icon"]}>
-                    <img src={item.icon} alt={item.label} />
-                  </span>
-                )}
-                <span className={styles["navigation-list__label"]}>
+              {item.label === "Log Out" ? (
+                <button onClick={() => handleSpecialActions(item)}>
                   {item.label}
-                </span>
-              </Link>
+                </button>
+              ) : (
+                <Link
+                  className={`${styles["navigation-list__link"]} ${
+                    location.pathname === item.to
+                      ? styles["navigation-list__link--active"]
+                      : ""
+                  }`}
+                  to={item.to}
+                  onClick={(e) => handleLinkClick(e, item)} // Chama a lógica de navegação
+                >
+                  {variant === "primary" && item.icon && (
+                    <span className={styles["navigation-list__icon"]}>
+                      <img src={item.icon} alt={item.label} />
+                    </span>
+                  )}
+                  <span className={styles["navigation-list__label"]}>
+                    {item.label}
+                  </span>
+                </Link>
+              )}
               {variant === "search-recent" && (
                 <Button
                   variant="secondary"
