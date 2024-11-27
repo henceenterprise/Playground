@@ -1,18 +1,19 @@
 import React, { useState, useCallback, useEffect } from "react";
 import styles from "./App.module.scss";
 import { Header, Menu } from "./components";
-import AppRoutes from "./routes";
+import AppRoutes from "./routes/AppRoutes";
+import DebugRoute from "./debug/DebugRoute";
 
 const App: React.FC = () => {
   const [isMenuClosed, setIsMenuClosed] = useState(false);
-  const [isMenuVisible, setIsMenuVisible] = useState(true); 
+  const [isMenuVisible, setIsMenuVisible] = useState(true);
 
   const toggleMenu = useCallback(() => {
     if (isMenuClosed) {
       setIsMenuVisible(true);
       setTimeout(() => {
         setIsMenuClosed(false);
-      }, 0); 
+      }, 0);
     } else {
       setIsMenuClosed(true);
       setTimeout(() => {

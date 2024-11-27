@@ -29,9 +29,7 @@ const Menu: React.FC<MenuProps> = ({ isClosed }) => {
   );
 
   return (
-    <nav
-      className={`${styles.menu} ${isClosed ? styles["menu--closed"] : ""}`}
-    >
+    <nav className={`${styles.menu} ${isClosed ? styles["menu--closed"] : ""}`}>
       <NavigationList variant="primary" items={ListItems} />
     </nav>
   );
