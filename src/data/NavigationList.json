@@ -51,18 +51,19 @@
     ]
   ],
   "modal_user": [
-    [
-      {
-        "label": "Log Out",
-        "to": "/log-out",
-        "icon": "ic_logout"
-      }
-    ],
+    
     [
       {
         "label": "Settings",
         "to": "/settings",
         "icon": "ic_settings"
+      }
+    ],
+    [
+      {
+        "label": "Log Out",
+        "to": "/log-out",
+        "icon": "ic_logout"
       }
     ]
   ]
