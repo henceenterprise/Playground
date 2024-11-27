@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Button,
   Search,
@@ -14,6 +14,7 @@ import ic_settings from "@/assets/media/svg/ic__settings.svg";
 import menuData from "../../data/NavigationList.json";
 
 import styles from "./Header.module.scss";
+import { useAuth } from "../../context/AuthContext"; // Importa o contexto
 
 interface HeaderProps {
   onToggleMenu: () => void;
@@ -23,6 +24,9 @@ const Header: React.FC<HeaderProps> = ({ onToggleMenu }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const modalRef = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
+
+  const { logout } = useAuth(); // Obtém a função logout do contexto
+  const navigate = useNavigate();
 
   const iconMap: Record<string, string> = {
     ic_menu,
@@ -58,6 +62,11 @@ const Header: React.FC<HeaderProps> = ({ onToggleMenu }) => {
     }
   };
 
+  const handleLogout = () => {
+    logout(); // Atualiza o estado no contexto
+    navigate("/"); // Redireciona para a página inicial
+  };
+
   useEffect(() => {
     if (isModalOpen) {
       document.addEventListener("mousedown", handleOutsideClick);
@@ -72,7 +81,11 @@ const Header: React.FC<HeaderProps> = ({ onToggleMenu }) => {
 
   return (
     <header className={styles.header}>
-      <div className={styles["header__column"] + " " + styles["header__column--left"]}>
+      <div
+        className={
+          styles["header__column"] + " " + styles["header__column--left"]
+        }
+      >
         <Button
           label=""
           onClick={onToggleMenu}
@@ -81,17 +94,22 @@ const Header: React.FC<HeaderProps> = ({ onToggleMenu }) => {
           icon={<img src={ic_menu} alt="" />}
           hover="primary"
         />
-        <Link
-          className={styles["header__link"]}
-          to="/"
-        >
+        <Link className={styles["header__link"]} to="/">
           Homepage
         </Link>
       </div>
-      <div className={styles["header__column"] + " " + styles["header__column--center"]}>
+      <div
+        className={
+          styles["header__column"] + " " + styles["header__column--center"]
+        }
+      >
         <Search />
       </div>
-      <div className={styles["header__column"] + " " + styles["header__column--right"]}>
+      <div
+        className={
+          styles["header__column"] + " " + styles["header__column--right"]
+        }
+      >
         <Button
           ref={buttonRef}
           label=""
@@ -112,8 +130,16 @@ const Header: React.FC<HeaderProps> = ({ onToggleMenu }) => {
               buttonRef.current?.classList.remove("btn--active");
             }}
           >
-              <UserInformation />
-              <NavigationList variant="primary" items={ListItems} />
+            <UserInformation />
+            <NavigationList
+              variant="primary"
+              onClickButton={(item) => {
+                if (item.label === "Log Out") {
+                  handleLogout();
+                }
+              }}
+              items={ListItems}
+            />
           </Modal>
         )}
       </div>

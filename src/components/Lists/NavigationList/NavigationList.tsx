@@ -56,8 +56,16 @@ const NavigationList: React.FC<NavigationListProps> = ({
           {group.map((item, index) => (
             <li className={styles["navigation-list__item"]} key={index}>
               {item.label === "Log Out" ? (
-                <button onClick={() => handleSpecialActions(item)}>
-                  {item.label}
+                <button
+                  className={`${styles["navigation-list__button"]} ${styles["navigation-list__button--logout"]}`}
+                  onClick={() => handleSpecialActions(item)}
+                >
+                  <span className={styles["navigation-list__button__icon"]}>
+                    <img src={item.icon} alt={item.label} />
+                  </span>
+                  <span className={styles["navigation-list__button__label"]}>
+                    {item.label}
+                  </span>
                 </button>
               ) : (
                 <Link
@@ -70,11 +78,11 @@ const NavigationList: React.FC<NavigationListProps> = ({
                   onClick={(e) => handleLinkClick(e, item)} // Chama a lógica de navegação
                 >
                   {variant === "primary" && item.icon && (
-                    <span className={styles["navigation-list__icon"]}>
+                    <span className={styles["navigation-list__link__icon"]}>
                       <img src={item.icon} alt={item.label} />
                     </span>
                   )}
-                  <span className={styles["navigation-list__label"]}>
+                  <span className={styles["navigation-list__link__label"]}>
                     {item.label}
                   </span>
                 </Link>
