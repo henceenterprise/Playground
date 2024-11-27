@@ -2,7 +2,6 @@ import React, { useState, useCallback, useEffect } from "react";
 import styles from "./App.module.scss";
 import { Header, Menu } from "./components";
 import AppRoutes from "./routes/AppRoutes";
-import DebugRoute from "./debug/DebugRoute";
 
 const App: React.FC = () => {
   const [isMenuClosed, setIsMenuClosed] = useState(false);
