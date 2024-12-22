@@ -1,0 +1,180 @@
+@use "@/styles/variables" as *;
+
+.guessPage {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(/src/assets/media/jpg/bg_guessPage_v2.jpg) no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .form {
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: hsla(0, 0%, 100%, 0.1);
+    backdrop-filter: blur(4px);
+    padding: $size32 $size32 $size40 $size32;
+    border-radius: $size8;
+    border: 1px solid hsla(0, 0%, 100%, 0.3);
+    box-shadow: 0 0 16px -4px hsla(0, 0%, 0%, 0.5);
+
+    @media screen and (max-width: 768px) {
+      padding: $size24 $size24 $size28 $size24;
+    }
+
+    &__title {
+      margin-bottom: $size32;
+      color: $white;
+      font-weight: 700;
+      font-size: 28px;
+    }
+
+    &__username,
+    &__password {
+        position: relative;
+        height: $size40;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: $size4;
+        width: 100%;
+
+      &__input {
+        border: 1px solid hsla(0, 0%, 100%, 0.3);
+        border-radius: $size40;
+        padding-inline: $size16;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: $size4;
+        height: 100%;
+        width: 100%;
+        color: $white;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 1;
+        outline: none;
+        cursor: text;
+
+        &::placeholder {
+          color: $white;
+          font-size: 14px;
+          line-height: 1;
+          font-weight: 500;
+        }
+
+        &:focus {
+          border: 1px solid $white;
+        }
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 20px;
+        height: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        right: $size16;
+        pointer-events: none;
+      }
+    }
+
+    &__username {
+      margin-bottom: 20px;
+      &::after {
+        background: url("/src/assets/media/svg/ic__person.svg") no-repeat center;
+        background-size: contain;
+      }
+    }
+
+    &__password {
+      margin-bottom: 12px;
+      &::after {
+        background: url("/src/assets/media/svg/ic__lock.svg") no-repeat center;
+        background-size: contain;
+      }
+    }
+
+    &__checkbox {
+        margin-bottom: 16px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: $size4;
+        width: 100%;
+        height: $size16;
+
+        &__box {
+            width: 14px;
+            height: 14px;
+        }
+
+        &__label {
+            color: $white;
+            font-weight: 500;
+            font-size: 11px;
+            line-height: 1;
+            cursor: pointer;
+            user-select: none;
+        }
+    }
+
+    &__btn {
+      &--submit {
+        width: 100%;
+        border-radius: 40px;
+        background: $white;
+        padding: $size8 $size16;
+        color: $black;
+        height: $size40;
+        font-weight: 600;
+        font-size: 14px;
+        display: block;
+        outline: none;
+        margin-bottom: 12px;
+        transition: background 0.25s ease-in-out, color 0.25s ease-in-out;
+
+        &:hover {
+          background: $lightblue-45;
+          color: $white;
+        }
+
+        &:focus-visible {
+          outline: $lightblue-react 2px solid;
+          outline-offset: 2px;
+        }
+      }
+    }
+
+    &__noAccount {
+        &__label {
+            font-size: 11px;
+            color: $white;
+            font-weight: 400;
+            line-height: 1;
+
+            span {
+                font-weight: 600;
+            }
+        }
+    }
+  }
+}

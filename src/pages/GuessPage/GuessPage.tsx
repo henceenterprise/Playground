@@ -19,30 +19,62 @@ const GuessPage: React.FC = () => {
       login(); // Atualiza o estado global de autenticação
       navigate("/"); // Redireciona para a LandingPage
     } else {
-      alert("Credenciais inválidas!");
+      alert("Invalid credentials! ❌🔑");
     }
   };
 
   return (
     <>
-      <section className={styles.guessPage}>
+      <section className={styles["guessPage"]}>
         <Container>
-          <h1>Welcome! Please Log In</h1>
-          <input
-            type="text"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <br />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <br />
-          <button onClick={handleLogin}>Log In</button>
+          <div className={styles["guessPage__container"]}>
+            <form className={styles["form"]}>
+              <h1 className={styles["form__title"]}>Login</h1>
+              <div className={styles["form__username"]}>
+                <input
+                  className={styles["form__username__input"]}
+                  type="text"
+                  placeholder="Username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+              </div>
+              <div className={styles["form__password"]}>
+                <input
+                  className={styles["form__password__input"]}
+                  type="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+              <div className={styles["form__checkbox"]}>
+                <input
+                  className={styles["form__checkbox__box"]}
+                  type="checkbox"
+                  id="remember-checkbox"
+                />
+                <label
+                  className={styles["form__checkbox__label"]}
+                  htmlFor="remember-checkbox"
+                >
+                  Remember me
+                </label>
+              </div>
+              <button
+                className={`${styles["form__btn"]} ${styles["form__btn--submit"]}`}
+                type="submit"
+                onClick={handleLogin}
+              >
+                Login
+              </button>
+              <div className={styles["form__noAccount"]}>
+                <span className={styles["form__noAccount__label"]}>
+                  Don&apos;t have an account? <span>Temos pena</span>
+                </span>
+              </div>
+            </form>
+          </div>
         </Container>
       </section>
     </>
